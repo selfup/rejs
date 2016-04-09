@@ -12,7 +12,7 @@ class Rejs {
   get initDbDir() {
     if(!fs.existsSync("rejs")){
        fs.mkdirSync("rejs", err => {
-         if(err){console.log(err)}
+         if(err) console.log(err)
       })
     }
   }
@@ -23,19 +23,22 @@ class Rejs {
     })
   }
 
+  fetchFromTable(table, id) {
+    fs.readFile(`./rejs/${table}.txt`, 'utf8', (err,data) => {
+      if (err) return console.log(err)
+      return console.log(data);
+    });
+  }
+
   newData(table, data) {
     this.store[this.id] = data
     this.writeToTable(table, this.store)
     this.id += 1
   }
 
-  deleteById(id) {
-    if (id in table) {
-      delete table[id]
-      console.log(`RECORD with ID: ${id} has been DELETED`)
-    } else {
-      console.log("ID is NOT in the DB")
-    }
+  deleteById(table, id) {
+    // Next Step is actually delete by id
+    this.fetchFromTable(table, id)
   }
 }
 
@@ -45,3 +48,4 @@ const rejs = new Rejs
 rejs.newData('coordinates', {k: 2634236})
 rejs.newData('coordinates', {k: 2634236})
 rejs.newData('coordinates', {k: 2634236})
+rejs.deleteById('coordinates', '2')
