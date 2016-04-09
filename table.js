@@ -28,11 +28,10 @@ class Rejs {
   }
 
   deleteById(table, id) {
-      let tableRead = fs.readFileSync(`./rejs/${table}.txt`, 'utf8')
-      let modData = JSON.parse(tableRead)
-      delete modData[`${id}`]
-      this.writeToTable(`${table}`, modData)
-
+    let tableRead = fs.readFileSync(`./rejs/${table}.txt`, 'utf8')
+    let modData = JSON.parse(tableRead)
+    delete modData[`${id}`]
+    this.writeToTable(`${table}`, modData)
   }
 }
 
