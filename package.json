@@ -1,0 +1,22 @@
+{
+  "name": "rejs",
+  "version": "1.0.0",
+  "description": "basic db in js",
+  "main": "table.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "db",
+    "rejs",
+    "regis",
+    "js",
+    "es6",
+    "es7"
+  ],
+  "author": "Regis Boudinot",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.9.0"
+  }
+}
