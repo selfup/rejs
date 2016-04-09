@@ -17,14 +17,28 @@ class Rejs {
     }
   }
 
+  fileExists(table) {
+    if(fs.existsSync(`rejs/${table}`) === false){
+      return false
+    }
+  }
+
   writeToTable(table, data) {
     fs.writeFileSync(`./rejs/${table}.txt`, JSON.stringify(data))
   }
 
   newData(table, data) {
-    this.store[this.id] = data
-    this.writeToTable(table, this.store)
-    this.id += 1
+    if (this.fileExists(table) === false) {
+      let store = {}
+      store[this.id] = data
+      this.writeToTable(table, store)
+      this.id += 1
+    } else {
+      let tableRead = JSON.parse(fs.readFileSync(`./rejs/${table}.txt`, 'utf8'))
+      let lastId = Object.keys(tableRead)[-1]
+      tableRead[lastId + 1] = data
+      this.writeToTable(table, tableRead)
+    }
   }
 
   deleteById(table, id) {
