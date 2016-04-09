@@ -21,15 +21,6 @@ class Rejs {
     fs.writeFileSync(`./rejs/${table}.txt`, JSON.stringify(data))
   }
 
-  fetchFromTable(table, id) {
-    fs.readFileSync(`./rejs/${table}.txt`, 'utf8', (err,data) => {
-      if (err) return console.log(err)
-      let modData = JSON.parse(data)
-      delete modData[`${id}`]
-      this.writeToTable(`${table}`, modData)
-    });
-  }
-
   newData(table, data) {
     this.store[this.id] = data
     this.writeToTable(table, this.store)
