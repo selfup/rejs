@@ -23,21 +23,23 @@ class Rejs {
     })
   }
 
-  newData (table, data) {
+  newData(table, data) {
     this.store[this.id] = data
     this.writeToTable(table, this.store)
     this.id += 1
   }
+
+  deleteById(id) {
+    if (id in table) {
+      delete table[id]
+      console.log(`RECORD with ID: ${id} has been DELETED`)
+    } else {
+      console.log("ID is NOT in the DB")
+    }
+  }
 }
 
-// const deleteById = (id) => {
-//   if (id in table) {
-//     delete table[id]
-//     console.log(`RECORD with ID: ${id} has been DELETED`)
-//   } else {
-//     console.log("ID is NOT in the DB")
-//   }
-// }
+
 const rejs = new Rejs
 
 rejs.newData('coordinates', {k: 2634236})
