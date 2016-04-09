@@ -24,9 +24,11 @@ class Rejs {
   }
 
   fetchFromTable(table, id) {
-    fs.readFile(`./rejs/${table}.txt`, 'utf8', (err,data) => {
+    fs.readFileSync(`./rejs/${table}.txt`, 'utf8', (err,data) => {
       if (err) return console.log(err)
-      return console.log(data);
+      let modData = JSON.parse(data)
+      delete modData[`${id}`]
+      this.writeToTable(`${table}`, modData)
     });
   }
 
@@ -37,8 +39,13 @@ class Rejs {
   }
 
   deleteById(table, id) {
-    // Next Step is actually delete by id
-    this.fetchFromTable(table, id)
+    fs.readFile(`./rejs/${table}.txt`, 'utf8', (err,data) => {
+      if (err) return console.log(err)
+      let modData = JSON.parse(data)
+      delete modData[`${id}`]
+      modData = JSON.stringify(modData)
+      this.writeToTable(`${table}`, modData)
+    });
   }
 }
 
@@ -49,3 +56,5 @@ rejs.newData('coordinates', {k: 2634236})
 rejs.newData('coordinates', {k: 2634236})
 rejs.newData('coordinates', {k: 2634236})
 rejs.deleteById('coordinates', '2')
+
+console.log(rejs)
