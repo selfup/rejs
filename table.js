@@ -1,7 +1,5 @@
 'use strict'
 
-const _ = require('lodash')
-
 let table = {}
 let id = 1
 
@@ -11,21 +9,23 @@ const newData = (data) => {
 }
 
 const deleteById = (id) => {
-  delete table[id]
-}
-
-const deleteByProp = (prop) => {
-
+  if (id in table) {
+    delete table[id]
+    console.log(`RECORD with ID: ${id} has been DELETED`)
+  } else {
+    console.log("ID is NOT in the DB")
+  }
 }
 
 // TESTS
 
 newData({x: 90})
 newData({x: 98})
-newData({x: 30})
-newData({x: 3044})
-newData({x: 3034342})
-newData({x: 3223434330})
+newData({x: 32})
+newData({x: 232})
+newData({x: 6782})
 
 deleteById('2')
+deleteById('2')
+
 console.log(table);

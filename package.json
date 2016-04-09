@@ -17,6 +17,5 @@
   "author": "Regis Boudinot",
   "license": "MIT",
   "dependencies": {
-    "lodash": "^4.9.0"
   }
 }
