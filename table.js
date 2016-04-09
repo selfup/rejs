@@ -1,31 +1,37 @@
 'use strict'
 
-let table = {}
+var fs = require('fs');
+
+let store = {}
 let id = 1
 
-const newData = (data) => {
-  table[id] = data
+if(!fs.existsSync("rejs")){
+   fs.mkdirSync("rejs", err => {
+     if(err){console.log(err)}
+   })
+ }
+
+const writeToTable = (table, data) => {
+  fs.writeFile(`./rejs/${table}.txt`, JSON.stringify(data), err => {
+    if (err) return console.log(err)
+  })
+}
+
+const newData = (table, data) => {
+  store[id] = data
+  writeToTable(table, store)
   id += 1
 }
 
-const deleteById = (id) => {
-  if (id in table) {
-    delete table[id]
-    console.log(`RECORD with ID: ${id} has been DELETED`)
-  } else {
-    console.log("ID is NOT in the DB")
-  }
-}
+// const deleteById = (id) => {
+//   if (id in table) {
+//     delete table[id]
+//     console.log(`RECORD with ID: ${id} has been DELETED`)
+//   } else {
+//     console.log("ID is NOT in the DB")
+//   }
+// }
 
-// TESTS
-
-newData({x: 90})
-newData({x: 98})
-newData({x: 32})
-newData({x: 232})
-newData({x: 6782})
-
-deleteById('2')
-deleteById('2')
-
-console.log(table);
+newData('coordinates', {k: 2634236})
+newData('coordinates', {k: 2634236})
+newData('coordinates', {k: 2634236})
