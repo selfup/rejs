@@ -2,25 +2,32 @@
 
 var fs = require('fs');
 
-let store = {}
-let id = 1
+class Rejs {
+  constructor() {
+    this.store = {}
+    this.id = 1
+    this.initDbDir
+  }
 
-if(!fs.existsSync("rejs")){
-   fs.mkdirSync("rejs", err => {
-     if(err){console.log(err)}
-   })
- }
+  get initDbDir() {
+    if(!fs.existsSync("rejs")){
+       fs.mkdirSync("rejs", err => {
+         if(err){console.log(err)}
+      })
+    }
+  }
 
-const writeToTable = (table, data) => {
-  fs.writeFile(`./rejs/${table}.txt`, JSON.stringify(data), err => {
-    if (err) return console.log(err)
-  })
-}
+  writeToTable(table, data) {
+    fs.writeFile(`./rejs/${table}.txt`, JSON.stringify(data), err => {
+      if (err) return console.log(err)
+    })
+  }
 
-const newData = (table, data) => {
-  store[id] = data
-  writeToTable(table, store)
-  id += 1
+  newData (table, data) {
+    this.store[this.id] = data
+    this.writeToTable(table, this.store)
+    this.id += 1
+  }
 }
 
 // const deleteById = (id) => {
@@ -31,7 +38,8 @@ const newData = (table, data) => {
 //     console.log("ID is NOT in the DB")
 //   }
 // }
+const rejs = new Rejs
 
-newData('coordinates', {k: 2634236})
-newData('coordinates', {k: 2634236})
-newData('coordinates', {k: 2634236})
+rejs.newData('coordinates', {k: 2634236})
+rejs.newData('coordinates', {k: 2634236})
+rejs.newData('coordinates', {k: 2634236})
