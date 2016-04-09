@@ -4,7 +4,6 @@ var fs = require('fs');
 
 class Rejs {
   constructor() {
-    this.store = {}
     this.id = 1
     this.initDbDir
   }
@@ -55,4 +54,4 @@ rejs.newData('coordinates', {k: 24})
 rejs.newData('coordinates', {k: 23})
 rejs.newData('coordinates', {k: 28})
 rejs.deleteById('coordinates', '2')
-// rejs.newData('coordinates', {k: 26})
+rejs.newData('coordinates', {k: 26})
