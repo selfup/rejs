@@ -30,7 +30,7 @@ This is a database that writes and reads files on the server.
 
 #### Wipe a table, change initial data structure:
 
-Here is where you will still have to use an ID but you can remove the initial `{"0": {"table": 'tablename'}}` Object.
+You will still have to use an ID but you can remove the initial `{"0": {"table": 'tablename'}}` Object.
 
 You can use: `writeToTable('tablename', dataObject)`
 
