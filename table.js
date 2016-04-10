@@ -16,28 +16,24 @@ class Rejs {
     }
   }
 
-  fileExists(table) {
-    if(fs.existsSync(`rejs/${table}`) === false){
-      return false
-    }
-  }
-
   writeToTable(table, data) {
     fs.writeFileSync(`./rejs/${table}.txt`, JSON.stringify(data))
   }
 
   newData(table, data) {
-    if (this.fileExists(table) === false) {
-      let store = {}
-      store[this.id] = data
-      this.writeToTable(table, store)
-      this.id += 1
-    } else {
+    if (fs.existsSync(`rejs/${table}`) === false) {
       let tableRead = JSON.parse(fs.readFileSync(`./rejs/${table}.txt`, 'utf8'))
-      let lastId = Object.keys(tableRead)[-1]
-      tableRead[lastId + 1] = data
+      let lastId = Object.keys(tableRead)
+      lastId = parseInt((lastId[lastId.length - 1])) + 1
+      tableRead[lastId] = data
       this.writeToTable(table, tableRead)
     }
+    // else if (!fs.existsSync(`rejs/${table}`) === false) {
+    //   let store = {}
+    //   store[this.id] = data
+    //   this.writeToTable(table, store)
+    //   this.id += 1
+    // }
   }
 
   deleteById(table, id) {
@@ -50,8 +46,6 @@ class Rejs {
 
 const rejs = new Rejs
 
-rejs.newData('coordinates', {k: 24})
-rejs.newData('coordinates', {k: 23})
-rejs.newData('coordinates', {k: 28})
-rejs.deleteById('coordinates', '2')
-rejs.newData('coordinates', {k: 26})
+rejs.newData('coordinates', {k: 21})
+rejs.deleteById('coordinates', '3')
+rejs.deleteById('coordinates', '5')
