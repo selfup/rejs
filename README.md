@@ -1,6 +1,6 @@
 # Selfup - Rejs
 
-Installation: `npm install selfup-rejs`
+Installation: `npm install selfup-rejs --save`
 
 Load package:
 
