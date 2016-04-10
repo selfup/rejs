@@ -44,5 +44,3 @@ class Rejs {
 }
 
 module.exports = Rejs
-
-const rejs = new Rejs
