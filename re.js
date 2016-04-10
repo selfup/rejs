@@ -1,6 +1,7 @@
 'use strict'
 
-var fs = require('fs');
+const fs = require('fs')
+const _ = require('lodash')
 
 class Rejs {
   constructor() {
@@ -22,6 +23,18 @@ class Rejs {
   findId(table, id) {
     let tableQuery = JSON.parse(fs.readFileSync(`./rejs/${table}`, 'utf8'))
     return tableQuery[id]
+  }
+
+  where(table, prop) {
+    let whereTable = this.getTable(`${table}`)
+    let ids = Object.keys(whereTable)
+    let whereStore = []
+    for (let i = 0; i < ids.length; i++) {
+      if (_.includes(whereTable[`${ids[i]}`], prop)) {
+        whereStore.push(whereTable[`${ids[i]}`])
+      }
+    }
+    return whereStore
   }
 
   createTable(tableName) {

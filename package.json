@@ -20,5 +20,7 @@
     "url": "https://github.com/selfup/rejs"
   },
   "homepage": "https://github.com/selfup/rejs",
-  "dependencies": {}
+  "dependencies": {
+    "lodash": "^4.9.0"
+  }
 }
