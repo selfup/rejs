@@ -1,6 +1,6 @@
 {
   "name": "selfup-rejs",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "basic server side db in js",
   "main": "re.js",
   "scripts": {
