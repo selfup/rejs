@@ -14,11 +14,11 @@ class Rejs {
       })
     }
   }
-  
+
   getTable(table) {
     return JSON.parse(fs.readFileSync(`./rejs/${table}`, 'utf8'))
   }
-  
+
   findId(table, id) {
     let tableQuery = JSON.parse(fs.readFileSync(`./rejs/${table}`, 'utf8'))
     return tableQuery[id]
@@ -26,13 +26,19 @@ class Rejs {
 
   createTable(tableName) {
     if(!fs.existsSync(`./rejs/${tableName}`)) {
-      let InitialData = {"0": {"table": `${tableName}`}}
-      fs.writeFileSync(`./rejs/${tableName}`, JSON.stringify(InitialData))
+      let initialData = {"0": {"table": `${tableName}`}}
+      fs.writeFileSync(`./rejs/${tableName}`, JSON.stringify(initialData))
     }
   }
 
   writeToTable(table, data) {
     fs.writeFileSync(`./rejs/${table}`, JSON.stringify(data))
+  }
+
+  updateTable(table, data) {
+    let initialData = {"0": {"table": `${table}`}}
+    fs.writeFileSync(`./rejs/${table}`, JSON.stringify(initialData))
+    this.newData(table, data)
   }
 
   newData(table, data) {
@@ -44,7 +50,7 @@ class Rejs {
   }
 
   dropTable(table) {
-    fs.unlinkSync(`./rejs/${table}`)  
+    fs.unlinkSync(`./rejs/${table}`)
   }
 
   deleteById(table, id) {
