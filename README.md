@@ -15,10 +15,12 @@ Delete data by ID in a table: `rejs.deleteById('tablename', '2')`
 
 Drop a table: `rejs.dropTable('tablename')`
 
-Replace/Overwrite a table: `writeToTable(tablename, dataObject)`
+Replace/Overwrite a table: `writeToTable('tablename', dataObject)`
+
+Table (GET) Object Query: `getTable('tablename')`
+
+Find by ID: `findId('tablename', 'id')`
 
 ### To work on
 
-* `findBy` propperty
-* `where` search
-* More error handling
+* `where`
