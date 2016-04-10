@@ -9,11 +9,11 @@ Load package:
 
 ### How to Use:
 
-* Create a table: `rejs.createTable('tablename')`
-* Add data to table: `rejs.newData('tablename', dataObject)`
-* Delete data by ID in a table: `rejs.deleteById('tablename', '2')`
-* Drop a table: `rejs.dropTable('tablename')`
-* Replace/Overwrite a table: `rejs.updateTable('tablename', dataObject)`
+* (POST) Create a table: `rejs.createTable('tablename')`
+* (POST) Add data to table: `rejs.newData('tablename', dataObject)`
+* (DELETE) Delete data by ID in a table: `rejs.deleteById('tablename', '2')`
+* (DELETE) Drop a table: `rejs.dropTable('tablename')`
+* (PATCH) Replace/Overwrite a table: `rejs.updateTable('tablename', dataObject)`
 * (GET) Table Object Query: `rejs.getTable('tablename')`
 * (GET) Find by ID: `rejs.findId('tablename', 'id')`
 * (GET) Where/Select: `rejs.where('tablename', 'any value in a flat object')`
