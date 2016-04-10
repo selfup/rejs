@@ -16,7 +16,7 @@ Load package:
 * Replace/Overwrite a table: `rejs.updateTable('tablename', dataObject)`
 * (GET) Table Object Query: `rejs.getTable('tablename')`
 * (GET) Find by ID: `rejs.findId('tablename', 'id')`
-* (GET) Where/Select: `rejs.where('tablename', 'any value is an object')`
+* (GET) Where/Select: `rejs.where('tablename', 'any value in a flat object')`
 
 ### Advanced Use:
 
