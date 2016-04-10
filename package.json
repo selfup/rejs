@@ -1,6 +1,6 @@
 {
   "name": "selfup-rejs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "basic server side db in js",
   "main": "re.js",
   "scripts": {
@@ -20,6 +20,5 @@
     "url": "https://github.com/selfup/rejs"
   },
   "homepage": "https://github.com/selfup/rejs",
-  "dependencies": {
-  }
+  "dependencies": {}
 }
