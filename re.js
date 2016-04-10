@@ -43,4 +43,4 @@ class Rejs {
   }
 }
 
-module.export = Rejs
+module.exports = Rejs
