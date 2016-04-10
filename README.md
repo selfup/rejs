@@ -17,6 +17,20 @@ Load package:
 * (GET) Table Object Query: `rejs.getTable('tablename')`
 * (GET) Find by ID: `rejs.findId('tablename', 'id')`
 
+### Advanced Use:
+
+#### Wipe a table, change initial data structure:
+
+Here is where you will still have to use an ID but you can remove the initial `{"0": {"table": `${table}`}}` Object.
+
+You can use: `writeToTable('tablename', dataObject)`
+
+*dataObject must have an ID for the DB to work*
+
+*Use at your own risk!*
+
+Example: `writeToTable('tablename', {"0": {"color": "blue"}})`
+
 ### To work on
 
 * `where`
