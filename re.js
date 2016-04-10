@@ -42,3 +42,5 @@ class Rejs {
     this.writeToTable(`${table}`, modData)
   }
 }
+
+module.export = Rejs
