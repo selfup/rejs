@@ -1,5 +1,7 @@
 # Selfup - Rejs
 
+**File based database! Built for developer freedom.**
+
 Installation: `npm install selfup-rejs --save`
 
 Load package:
