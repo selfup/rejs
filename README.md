@@ -13,6 +13,8 @@ Add data to table: `rejs.newData('tablename', jsonObject)`
 
 Delete data by ID in a table: `rejs.deleteById('tablename', '2')`
 
+Drop a table: `rejs.dropTable('tablename')`
+
 ### To work on
 
 * `findBy` propperty
