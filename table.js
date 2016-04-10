@@ -8,7 +8,7 @@ class Rejs {
   }
 
   get initDbDir() {
-    if(!fs.existsSync("rejs")){
+    if(!fs.existsSync("rejs")) {
       fs.mkdirSync("rejs", err => {
         if(err) console.log(err)
       })
