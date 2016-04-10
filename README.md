@@ -9,6 +9,12 @@ Load package:
 
 ### How to Use:
 
+Using RESTful verbs to help explain from a high level what is happening.
+
+This is not a server.
+
+This is a database that writes and reads files on the server.
+
 * (POST) Create a table: `rejs.createTable('tablename')`
 * (POST) Add data to table: `rejs.newData('tablename', dataObject)`
 * (DELETE) Delete data by ID in a table: `rejs.deleteById('tablename', '2')`
