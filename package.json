@@ -1,5 +1,5 @@
 {
-  "name": "rejs",
+  "name": "selfup-rejs",
   "version": "1.0.0",
   "description": "basic server side db in js",
   "main": "re.js",
@@ -14,12 +14,12 @@
     "es6",
     "es7"
   ],
-  "author": "Regis Boudinot",
+  "author": "selfup",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/selfup/game-time"
+    "url": "https://github.com/selfup/rejs"
   },
-  "homepage": "https://github.com/selfup/game-time",
+  "homepage": "https://github.com/selfup/rejs",
   "dependencies": {
   }
 }
