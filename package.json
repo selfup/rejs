@@ -1,7 +1,7 @@
 {
   "name": "rejs",
   "version": "1.0.0",
-  "description": "basic db in js",
+  "description": "basic server side db in js",
   "main": "re.js",
   "scripts": {
     "test": "mocha"
@@ -16,6 +16,10 @@
   ],
   "author": "Regis Boudinot",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/selfup/game-time"
+  },
+  "homepage": "https://github.com/selfup/game-time",
   "dependencies": {
   }
 }
