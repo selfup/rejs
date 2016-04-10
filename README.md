@@ -4,8 +4,8 @@ Installation: `npm install selfup-rejs`
 
 Load package:
 
-`const selfupRejs = require('selfup-rejs')`
-`const rejs = new selfupRejs`
+    const selfupRejs = require('selfup-rejs')
+    const rejs = new selfupRejs
 
 Create a table: `rejs.createTable('tablename')`
 
