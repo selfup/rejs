@@ -2,11 +2,6 @@
 
 Installation: `npm install selfup-rejs`
 
-Load package:
-
-`const selfup-rejs = require(selfup-rejs)`
-`const rejs = selfup-rejs`
-
 Create a table: `rejs.createTable('tablename')`
 
 Add data to table: `rejs.newData('tablename', jsonObject)`
