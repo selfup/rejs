@@ -1,29 +1,62 @@
-const r = require('./../re.js')
+const assert = require('chai').assert;
+const r      = require('./../re.js')
 
-rejs = new r
+describe('Rejs', function() {
+  beforeEach(function(){
+    this.rejs = new r
+    this.rejs.createTable('testOne')
+  })
 
-rejs.createTable('testOne')
+  afterEach(function(){
+    this.rejs.dropTable('testOne')
+  })
 
-rejs.newData('testOne', {test: "test data 1"})
-rejs.newData('testOne', {test: "test data 2"})
-rejs.newData('testOne', {test: "test data 1"})
-rejs.newData('testOne', {test: "test data 4"})
+  describe('where', () => {
+    it('selects records that have a matching key', function() {
+      this.rejs.newData('testOne', {test: "test data 1"})
+      this.rejs.newData('testOne', {test: "test data 2"})
+      this.rejs.newData('testOne', {test: "test data 1"})
+      this.rejs.newData('testOne', {test: "test data 4"})
 
-console.log(rejs.where('testOne', 'test data 1'))
+      const expected = [{test: 'test data 1'}, {test: 'test data 1'}]
+      assert.deepEqual(expected, this.rejs.where('testOne', 'test data 1'))
+    })
+  })
 
-console.log(rejs.getTable('testOne'))
-console.log(rejs.findId('testOne', '1'))
+  describe('getTable', () => {
+    it('returns all the data from the table', function() {
+      this.rejs.newData('testOne', {test: "test data 1"})
+      this.rejs.newData('testOne', {test: "test data 2"})
 
-rejs.updateTable('testOne', {test: "test data updated table"})
+      const expected = {
+        '0': { table: 'testOne' },
+        '1': { test: 'test data 1' },
+        '2': { test: 'test data 2' },
+      }
 
-console.log(rejs.getTable('testOne'))
+      assert.deepEqual(expected, this.rejs.getTable('testOne'))
+    })
+  })
 
-rejs.dropTable('testOne')
+  describe('findId', () => {
+    it('returns the matching record if one exists', function() {
+      this.rejs.newData('testOne', {test: "test data 1"})
+      this.rejs.newData('testOne', {test: "test data 2"})
+      assert.deepEqual({test: 'test data 1'}, this.rejs.findId('testOne', '1'))
+      assert.deepEqual({test: 'test data 2'}, this.rejs.findId('testOne', '2'))
+      assert.equal(null,                      this.rejs.findId('testOne', '3'))
+    })
+  })
 
-rejs.createTable('testOne')
-rejs.newData('testOne', {test: "test data 1"})
-
-console.log(rejs.getTable('testOne'))
-console.log(rejs.findId('testOne', '1'))
-
-rejs.dropTable('testOne')
+  describe('updateTable', () => {
+    it('replaces the data in a table', function() {
+      this.rejs.newData('testOne',     {test: "old data"})
+      this.rejs.updateTable('testOne', {test: "new data"})
+      const expected = {
+        '0': { table: 'testOne' },
+        '1': { test: 'new data' },
+      }
+      assert.deepEqual(expected, this.rejs.getTable('testOne'))
+    })
+  })
+})
