@@ -39,7 +39,3 @@ You can use: `writeToTable('tablename', dataObject)`
 *Use at your own risk!*
 
 Example: `writeToTable('tablename', {"0": {"color": "blue"}})`
-
-### To work on
-
-* `where`
