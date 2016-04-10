@@ -43,6 +43,10 @@ class Rejs {
     this.writeToTable(table, tableRead)
   }
 
+  dropTable(table) {
+    fs.unlinkSync(`./rejs/${table}`)  
+  }
+
   deleteById(table, id) {
     let tableRead = fs.readFileSync(`./rejs/${table}`, 'utf8')
     let modData = JSON.parse(tableRead)
