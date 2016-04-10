@@ -2,7 +2,7 @@
   "name": "rejs",
   "version": "1.0.0",
   "description": "basic db in js",
-  "main": "table.js",
+  "main": "re.js",
   "scripts": {
     "test": "mocha"
   },
