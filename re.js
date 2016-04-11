@@ -3,6 +3,11 @@
 const fs = require('fs')
 const _  = require('lodash')
 
+const _resetTable = Symbol('resetTable');
+const _modifyTable = Symbol('modifyTable');
+const _replaceTable = Symbol('replaceTable');
+const _initialData = Symbol('initialData');
+
 class Rejs {
   constructor() {
     if (fs.existsSync("rejs")) return
@@ -12,15 +17,15 @@ class Rejs {
   // public
   createTable(tableName) {
     if (fs.existsSync(`./rejs/${tableName}`)) return
-    this.resetTable(tableName)
+    this[_resetTable](tableName)
   }
 
   newData(tableName, data) {
-    this.modifyTable(tableName, t => t[t[0].nextId++] = data)
+    this[_modifyTable](tableName, t => t[t[0].nextId++] = data)
   }
 
   deleteById(tableName, id) {
-    this.modifyTable(tableName, t => delete t[id])
+    this[_modifyTable](tableName, t => delete t[id])
   }
 
   dropTable(tableName) {
@@ -28,7 +33,7 @@ class Rejs {
   }
 
   updateTable(tableName, data) {
-    this.resetTable(tableName)
+    this[_resetTable](tableName)
     this.newData(tableName, data)
   }
 
@@ -48,21 +53,21 @@ class Rejs {
   }
 
   // private
-  replaceTable(tableName, data) {
+  [_replaceTable](tableName, data) {
     fs.writeFileSync(`./rejs/${tableName}`, JSON.stringify(data))
   }
 
-  resetTable(tableName) {
-    this.replaceTable(tableName, this.initialData(tableName))
+  [_resetTable](tableName) {
+    this[_replaceTable](tableName, this[_initialData](tableName))
   }
 
-  modifyTable(tableName, fn) {
+  [_modifyTable](tableName, fn) {
     const table = this.getTable(tableName)
     fn(table)
-    this.replaceTable(tableName, table)
+    this[_replaceTable](tableName, table)
   }
 
-  initialData(tableName) {
+  [_initialData](tableName) {
     return {"0": {"table": tableName, nextId: 1}}
   }
 }
