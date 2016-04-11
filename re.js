@@ -11,7 +11,7 @@ class Rejs {
 
   // public
   createTable(tableName) {
-    if(fs.existsSync(`./rejs/${tableName}`)) return
+    if (fs.existsSync(`./rejs/${tableName}`)) return
     this.resetTable(tableName)
   }
 
