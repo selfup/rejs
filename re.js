@@ -5,11 +5,8 @@ const _  = require('lodash')
 
 class Rejs {
   constructor() {
-    if(fs.existsSync("rejs"))
-      return
-    fs.mkdirSync("rejs", err => {
-      if(err) console.log(err)
-    })
+    if (fs.existsSync("rejs")) return
+    fs.mkdirSync("rejs", err => { if (err) console.log(err) })
   }
 
   // public
