@@ -22,5 +22,9 @@
   "homepage": "https://github.com/selfup/rejs",
   "dependencies": {
     "lodash": "^4.9.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5",
+    "chai": "^3.5.0"
   }
 }
