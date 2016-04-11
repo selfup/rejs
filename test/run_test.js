@@ -1,17 +1,17 @@
 const assert = require('chai').assert;
-const r      = require('./../re.js')
+const r      = require('../re.js')
 
 describe('Rejs', function() {
-  beforeEach(function(){
+  beforeEach(function() {
     this.rejs = new r
     this.rejs.createTable('testOne')
   })
 
-  afterEach(function(){
+  afterEach(function() {
     this.rejs.dropTable('testOne')
   })
 
-  describe('where', () => {
+  describe('where', function() {
     it('selects records that have a matching key', function() {
       this.rejs.newData('testOne', {test: "test data 1"})
       this.rejs.newData('testOne', {test: "test data 2"})
@@ -23,13 +23,13 @@ describe('Rejs', function() {
     })
   })
 
-  describe('getTable', () => {
+  describe('getTable', function() {
     it('returns all the data from the table', function() {
       this.rejs.newData('testOne', {test: "test data 1"})
       this.rejs.newData('testOne', {test: "test data 2"})
 
       const expected = {
-        '0': { table: 'testOne' },
+        '0': { table: 'testOne', nextId: 3 },
         '1': { test: 'test data 1' },
         '2': { test: 'test data 2' },
       }
@@ -38,7 +38,7 @@ describe('Rejs', function() {
     })
   })
 
-  describe('findId', () => {
+  describe('findId', function() {
     it('returns the matching record if one exists', function() {
       this.rejs.newData('testOne', {test: "test data 1"})
       this.rejs.newData('testOne', {test: "test data 2"})
@@ -48,12 +48,12 @@ describe('Rejs', function() {
     })
   })
 
-  describe('updateTable', () => {
+  describe('updateTable', function() {
     it('replaces the data in a table', function() {
       this.rejs.newData('testOne',     {test: "old data"})
       this.rejs.updateTable('testOne', {test: "new data"})
       const expected = {
-        '0': { table: 'testOne' },
+        '0': { table: 'testOne', nextId: 2 },
         '1': { test: 'new data' },
       }
       assert.deepEqual(expected, this.rejs.getTable('testOne'))
