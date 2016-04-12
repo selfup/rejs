@@ -12,7 +12,15 @@
     "regis",
     "js",
     "es6",
-    "es7"
+    "es7",
+    "database",
+    "key value store",
+    "key",
+    "value",
+    "store",
+    "nodebots",
+    "raspberry pi",
+    "arduino"
   ],
   "author": "selfup",
   "license": "MIT",
