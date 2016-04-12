@@ -3,20 +3,20 @@
 const fs = require('fs')
 const _  = require('lodash')
 
-const _resetTable = Symbol('resetTable');
-const _modifyTable = Symbol('modifyTable');
-const _replaceTable = Symbol('replaceTable');
-const _initialData = Symbol('initialData');
+const _resetTable   = Symbol('resetTable')
+const _modifyTable  = Symbol('modifyTable')
+const _replaceTable = Symbol('replaceTable')
+const _initialData  = Symbol('initialData')
 
 class Rejs {
   constructor() {
-    if (fs.existsSync("rejs")) return
-    fs.mkdirSync("rejs", err => { if (err) console.log(err) })
+    if (fs.existsSync("selfup-rejs")) return
+    fs.mkdirSync("selfup-rejs", err => { if (err) console.log(err) })
   }
 
   // public
   createTable(tableName) {
-    if (fs.existsSync(`./rejs/${tableName}`)) return
+    if (fs.existsSync(`./selfup-rejs/${tableName}`)) return
     this[_resetTable](tableName)
   }
 
@@ -29,7 +29,7 @@ class Rejs {
   }
 
   dropTable(tableName) {
-    fs.unlinkSync(`./rejs/${tableName}`)
+    fs.unlinkSync(`./selfup-rejs/${tableName}`)
   }
 
   updateTable(tableName, data) {
@@ -38,7 +38,7 @@ class Rejs {
   }
 
   getTable(tableName) {
-    return JSON.parse(fs.readFileSync(`./rejs/${tableName}`, 'utf8'))
+    return JSON.parse(fs.readFileSync(`./selfup-rejs/${tableName}`, 'utf8'))
   }
 
   findId(tableName, id) {
@@ -54,7 +54,7 @@ class Rejs {
 
   // private
   [_replaceTable](tableName, data) {
-    fs.writeFileSync(`./rejs/${tableName}`, JSON.stringify(data))
+    fs.writeFileSync(`./selfup-rejs/${tableName}`, JSON.stringify(data))
   }
 
   [_resetTable](tableName) {
