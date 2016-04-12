@@ -25,17 +25,3 @@ This is a database that writes and reads files on the server.
 * (GET)    Table Object Query: `rejs.getTable('tablename')`
 * (GET)    Find by ID: `rejs.findId('tablename', 'id')`
 * (GET)    Where/Select: `rejs.where('tablename', 'any value in a flat object')`
-
-### Advanced Use:
-
-#### Wipe a table, change initial data structure:
-
-You will still have to use an ID but you can remove the initial `{"0": {"table": 'tablename'}}` Object.
-
-You can use: `writeToTable('tablename', dataObject)`
-
-*dataObject must have an ID for the DB to work*
-
-*Use at your own risk!*
-
-Example: `writeToTable('tablename', {"0": {"color": "blue"}})`

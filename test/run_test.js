@@ -1,3 +1,5 @@
+'use strict'
+
 const assert = require('chai').assert;
 const r      = require('../re.js')
 
@@ -45,6 +47,17 @@ describe('Rejs', function() {
       assert.deepEqual({test: 'test data 1'}, this.rejs.findId('testOne', '1'))
       assert.deepEqual({test: 'test data 2'}, this.rejs.findId('testOne', '2'))
       assert.equal(null,                      this.rejs.findId('testOne', '3'))
+    })
+  })
+
+  describe('newAndGetBenchmark', function() {
+    it('can append and fetch a good amount of data', function() {
+      for (let i = 0; i < 100; i++) {
+        this.rejs.newData('testOne', {test: "test data 2"})
+      }
+      for (let i = 0; i < 1000; i++) {
+        this.rejs.getTable('testOne')
+      }
     })
   })
 
