@@ -3,10 +3,10 @@
 const fs = require('fs')
 const _  = require('lodash')
 
-const _resetTable = Symbol('resetTable');
-const _modifyTable = Symbol('modifyTable');
+const _resetTable   = Symbol('resetTable');
+const _modifyTable  = Symbol('modifyTable');
 const _replaceTable = Symbol('replaceTable');
-const _initialData = Symbol('initialData');
+const _initialData  = Symbol('initialData');
 
 class Rejs {
   constructor() {
