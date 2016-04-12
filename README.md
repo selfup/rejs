@@ -25,3 +25,5 @@ This is a database that writes and reads files on the server.
 * (GET)    Table Object Query: `rejs.getTable('tablename')`
 * (GET)    Find by ID: `rejs.findId('tablename', 'id')`
 * (GET)    Where/Select: `rejs.where('tablename', 'any value in a flat object')`
+
+Video on how to use selfup-rejs: ![Link to Youtube Vid](https://www.youtube.com/watch?v=dVTePMkw9EE&feature=youtu.be&a)
