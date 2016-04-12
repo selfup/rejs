@@ -1,7 +1,7 @@
 {
   "name": "selfup-rejs",
   "version": "1.0.14",
-  "description": "basic server side db in js",
+  "description": "Event based, key value store on the file system. Basic server side db in js for node developers.",
   "main": "re.js",
   "scripts": {
     "test": "mocha"
