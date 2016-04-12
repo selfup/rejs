@@ -27,3 +27,20 @@ This is a database that writes and reads files on the server.
 * (GET)    Where/Select: `rejs.where('tablename', 'any value in a flat object')`
 
 Video on how to use selfup-rejs: [Link to Youtube Vid](https://www.youtube.com/watch?v=dVTePMkw9EE&feature=youtu.be&a)
+
+### Potential use Cases:
+
+#### JohnnyFive/NodeBots
+
+* Store temperature data over time
+* Store how many times a door has been opened
+* Store telemetry data
+* Store Data on a Raspberry Pi
+* Store Data on a server hooked up to an Arduino
+* Store Data on an Arduino Yun/BeagleBone/etc...
+* Many possibilities for IoT
+
+#### VPS
+
+* Use it as a small DB for a low volume production app
+* Use it to get quickly set up, and then move on to Mongo/Postgres once your app is mature and MVP is proven
