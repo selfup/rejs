@@ -89,6 +89,28 @@ describe('Rejs', function() {
       })
     })
 
+    describe('getTables: three', function() {
+      it('returns an array of four tables', function() {
+        this.rejs.createTable('firstTable')
+        this.rejs.createTable('secondTable')
+        this.rejs.createTable('thirdTable')
+        this.rejs.createTable('fourthTable')
+
+        const expected = [
+          {'0': { table: 'firstTable', nextId: 1 }},
+          {'0': { table: 'secondTable', nextId: 1 }},
+          {'0': { table: 'thirdTable', nextId: 1 }}
+        ]
+        const tbls = this.rejs.getTables('firstTable', 'secondTable', 'thirdTable')
+
+        assert.deepEqual(expected, tbls)
+
+        this.rejs.dropTable('firstTable')
+        this.rejs.dropTable('secondTable')
+        this.rejs.dropTable('thirdTable')
+      })
+    })
+
     describe('getTables: four', function() {
       it('returns an array of four tables', function() {
         this.rejs.createTable('firstTable')
