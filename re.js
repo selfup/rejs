@@ -52,9 +52,9 @@ class Rejs {
     return _.filter(records, (record) => _.includes(record, prop))
   }
 
-  getTables(tableNames) {
+  getTables() {
     let tables = []
-    for (let val of tableNames) {
+    for (let val of Array.from(arguments)) {
       tables.push(this.getTable(val))
     }
     return tables

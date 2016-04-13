@@ -80,7 +80,7 @@ describe('Rejs', function() {
           {'0': { table: 'firstTable', nextId: 1 }},
           {'0': { table: 'secondTable', nextId: 1 }}
         ]
-        const tbls = this.rejs.getTables(['firstTable', 'secondTable'])
+        const tbls = this.rejs.getTables('firstTable', 'secondTable')
 
         assert.deepEqual(expected, tbls)
 
@@ -102,7 +102,7 @@ describe('Rejs', function() {
           {'0': { table: 'thirdTable', nextId: 1 }},
           {'0': { table: 'fourthTable', nextId: 1 }}
         ]
-        const tbls = this.rejs.getTables(['firstTable', 'secondTable', 'thirdTable', 'fourthTable'])
+        const tbls = this.rejs.getTables('firstTable', 'secondTable', 'thirdTable', 'fourthTable')
 
         assert.deepEqual(expected, tbls)
 
