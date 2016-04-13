@@ -56,11 +56,18 @@
 
 To get 100% coverage:
 
+If the `selfup-rejs` folder is in your directory:
+
 ```
 npm install
 rm -rf selfup-rejs
-./node_modules/.bin/istanbul cover _mocha
 ```
+
+Then you can run:
+
+`./node_modules/.bin/istanbul cover _mocha`
+
+Now the selfup-rejs folder will be in your directory again!
 
 To run tests without coverage:
 
