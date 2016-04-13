@@ -53,11 +53,7 @@ class Rejs {
   }
 
   getTables() {
-    let tables = []
-    for (let table of Array.from(arguments)) {
-      tables.push(this.getTable(table))
-    }
-    return tables
+    return Array.from(arguments).map(table => this.getTable(table))
   }
 
   // private
