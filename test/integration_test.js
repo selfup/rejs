@@ -94,7 +94,6 @@ describe('Rejs', function() {
         this.rejs.createTable('firstTable')
         this.rejs.createTable('secondTable')
         this.rejs.createTable('thirdTable')
-        this.rejs.createTable('fourthTable')
 
         const expected = [
           {'0': { table: 'firstTable', nextId: 1 }},
