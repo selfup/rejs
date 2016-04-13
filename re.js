@@ -54,8 +54,8 @@ class Rejs {
 
   getTables() {
     let tables = []
-    for (let val of Array.from(arguments)) {
-      tables.push(this.getTable(val))
+    for (let table of Array.from(arguments)) {
+      tables.push(this.getTable(table))
     }
     return tables
   }
