@@ -11,7 +11,7 @@ const _initialData  = Symbol('initialData')
 class Rejs {
   constructor() {
     if (fs.existsSync("selfup-rejs")) return
-    fs.mkdirSync("selfup-rejs", err => { if (err) console.log(err) })
+    fs.mkdirSync("selfup-rejs")
   }
 
   // public

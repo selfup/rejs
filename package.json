@@ -4,6 +4,7 @@
   "description": "Event based, key value store on the file system. Basic server side db in js for node developers. Geared towards NodeBots/IoT.",
   "main": "re.js",
   "scripts": {
+    "pre-install": "rm -rf selfup-rejs",
     "test": "mocha"
   },
   "keywords": [
@@ -32,7 +33,8 @@
     "lodash": "^4.9.0"
   },
   "devDependencies": {
-    "mocha": "^2.4.5",
-    "chai": "^3.5.0"
+    "chai": "^3.5.0",
+    "istanbul": "^0.4.3",
+    "mocha": "^2.4.5"
   }
 }

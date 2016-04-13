@@ -51,3 +51,21 @@
 
 * Use it as a small DB for a low volume production app
 * Use it to get quickly set up, and then move on to Mongo/Postgres once your app is mature and MVP is proven
+
+### Test Coverage
+
+100% according to istanbul
+
+![](http://i.imgur.com/doE5Iex.png)
+
+To get 100% coverage:
+
+```
+npm install
+rm -rf selfup-rejs
+./node_modules/.bin/istanbul cover _mocha
+```
+
+To run tests without coverage:
+
+`npm test`
