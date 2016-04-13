@@ -54,7 +54,7 @@
 
 ### Test Coverage
 
-To get 100% coverage:
+#### To get 100% coverage:
 
 If the `selfup-rejs` folder is in your directory:
 
@@ -69,7 +69,7 @@ Then you can run:
 
 Now the selfup-rejs folder will be in your directory again!
 
-To run tests without coverage:
+#### To run tests without coverage:
 
 `npm test`
 
