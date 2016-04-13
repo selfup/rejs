@@ -52,18 +52,12 @@ class Rejs {
     return _.filter(records, (record) => _.includes(record, prop))
   }
 
-  doubleGet(firstTableName, secondTableName) {
-    let doubleTable = []
-    doubleTable.push(this.getTable(firstTableName))
-    doubleTable.push(this.getTable(secondTableName))
-    return doubleTable
-  }
-
-  quadGet(firstTableName, secondTableName, thirdTableName, fourthTableName) {
-    let quadTable = []
-    quadTable.push(this.doubleGet(firstTableName, secondTableName))
-    quadTable.push(this.doubleGet(thirdTableName, fourthTableName))
-    return _.flatten(quadTable)
+  getTables(tableNames) {
+    let tables = []
+    for (let val of tableNames) {
+      tables.push(this.getTable(val))
+    }
+    return tables
   }
 
   // private

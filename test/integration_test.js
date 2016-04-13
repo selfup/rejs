@@ -71,7 +71,7 @@ describe('Rejs', function() {
       })
     })
 
-    describe('doubleGet', function() {
+    describe('getTables: two', function() {
       it('returns an array of two tables', function() {
         this.rejs.createTable('firstTable')
         this.rejs.createTable('secondTable')
@@ -80,7 +80,7 @@ describe('Rejs', function() {
           {'0': { table: 'firstTable', nextId: 1 }},
           {'0': { table: 'secondTable', nextId: 1 }}
         ]
-        const tbls = this.rejs.doubleGet('firstTable', 'secondTable')
+        const tbls = this.rejs.getTables(['firstTable', 'secondTable'])
 
         assert.deepEqual(expected, tbls)
 
@@ -89,7 +89,7 @@ describe('Rejs', function() {
       })
     })
 
-    describe('quadGet', function() {
+    describe('getTables: four', function() {
       it('returns an array of four tables', function() {
         this.rejs.createTable('firstTable')
         this.rejs.createTable('secondTable')
@@ -102,7 +102,7 @@ describe('Rejs', function() {
           {'0': { table: 'thirdTable', nextId: 1 }},
           {'0': { table: 'fourthTable', nextId: 1 }}
         ]
-        const tbls = this.rejs.quadGet('firstTable', 'secondTable', 'thirdTable', 'fourthTable')
+        const tbls = this.rejs.getTables(['firstTable', 'secondTable', 'thirdTable', 'fourthTable'])
 
         assert.deepEqual(expected, tbls)
 
