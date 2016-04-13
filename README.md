@@ -56,8 +56,6 @@
 
 100% according to istanbul
 
-![](http://i.imgur.com/doE5Iex.png)
-
 To get 100% coverage:
 
 ```
@@ -69,3 +67,7 @@ rm -rf selfup-rejs
 To run tests without coverage:
 
 `npm test`
+
+![](http://i.imgur.com/doE5Iex.png)
+
+![](http://i.imgur.com/9E969Dp.png)
