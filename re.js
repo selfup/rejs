@@ -11,7 +11,7 @@ const _initialData  = Symbol('initialData')
 class Rejs {
   constructor() {
     if (fs.existsSync("selfup-rejs")) return
-    fs.mkdirSync("selfup-rejs", err => { if (err) console.log(err) })
+    fs.mkdirSync("selfup-rejs")
   }
 
   // public
@@ -50,6 +50,10 @@ class Rejs {
     const records    = _.values(whereTable)
     records.shift() // remove the metadata
     return _.filter(records, (record) => _.includes(record, prop))
+  }
+
+  getTables() {
+    return Array.from(arguments).map(table => this.getTable(table))
   }
 
   // private

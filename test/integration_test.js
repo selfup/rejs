@@ -8,38 +8,38 @@ describe('Rejs', function() {
       this.rejs = new r
       this.rejs.createTable('testOne')
     })
-  
+
     afterEach(function() {
       this.rejs.dropTable('testOne')
     })
-    
+
     describe('getTable and newData', function() {
       it('appends new data and returns all the appended data from the table', function() {
         this.rejs.newData('testOne', {test: "test data 1"})
         this.rejs.newData('testOne', {test: "test data 2"})
-  
+
         const expected = {
           '0': { table: 'testOne', nextId: 3 },
           '1': { test: 'test data 1' },
           '2': { test: 'test data 2' },
         }
-  
+
         assert.deepEqual(expected, this.rejs.getTable('testOne'))
       })
     })
-    
+
      describe('where', function() {
       it('selects records that have a matching key', function() {
         this.rejs.newData('testOne', {test: "test data 1"})
         this.rejs.newData('testOne', {test: "test data 2"})
         this.rejs.newData('testOne', {test: "test data 1"})
         this.rejs.newData('testOne', {test: "test data 4"})
-  
+
         const expected = [{test: 'test data 1'}, {test: 'test data 1'}]
         assert.deepEqual(expected, this.rejs.where('testOne', 'test data 1'))
       })
     })
-  
+
     describe('findId', function() {
       it('returns the matching record if one exists', function() {
         this.rejs.newData('testOne', {test: "test data 1"})
@@ -49,7 +49,7 @@ describe('Rejs', function() {
         assert.equal(null,                      this.rejs.findId('testOne', '3'))
       })
     })
-  
+
     describe('deleteById', function() {
       it('deletes the correct object by ID in the correct table', function() {
         this.rejs.newData('testOne', {test: "test data 1"})
@@ -58,7 +58,7 @@ describe('Rejs', function() {
         assert.equal(null,                      this.rejs.findId('testOne', '2'))
       })
     })
-  
+
     describe('updateTable', function() {
       it('replaces the data in a table', function() {
         this.rejs.newData('testOne',     {test: "old data"})
@@ -70,7 +70,71 @@ describe('Rejs', function() {
         assert.deepEqual(expected, this.rejs.getTable('testOne'))
       })
     })
-  
+
+    describe('getTables: two', function() {
+      it('returns an array of two tables', function() {
+        this.rejs.createTable('firstTable')
+        this.rejs.createTable('secondTable')
+
+        const expected = [
+          {'0': { table: 'firstTable', nextId: 1 }},
+          {'0': { table: 'secondTable', nextId: 1 }}
+        ]
+        const tbls = this.rejs.getTables('firstTable', 'secondTable')
+
+        assert.deepEqual(expected, tbls)
+
+        this.rejs.dropTable('firstTable')
+        this.rejs.dropTable('secondTable')
+      })
+    })
+
+    describe('getTables: three', function() {
+      it('returns an array of four tables', function() {
+        this.rejs.createTable('firstTable')
+        this.rejs.createTable('secondTable')
+        this.rejs.createTable('thirdTable')
+        this.rejs.createTable('fourthTable')
+
+        const expected = [
+          {'0': { table: 'firstTable', nextId: 1 }},
+          {'0': { table: 'secondTable', nextId: 1 }},
+          {'0': { table: 'thirdTable', nextId: 1 }}
+        ]
+        const tbls = this.rejs.getTables('firstTable', 'secondTable', 'thirdTable')
+
+        assert.deepEqual(expected, tbls)
+
+        this.rejs.dropTable('firstTable')
+        this.rejs.dropTable('secondTable')
+        this.rejs.dropTable('thirdTable')
+      })
+    })
+
+    describe('getTables: four', function() {
+      it('returns an array of four tables', function() {
+        this.rejs.createTable('firstTable')
+        this.rejs.createTable('secondTable')
+        this.rejs.createTable('thirdTable')
+        this.rejs.createTable('fourthTable')
+
+        const expected = [
+          {'0': { table: 'firstTable', nextId: 1 }},
+          {'0': { table: 'secondTable', nextId: 1 }},
+          {'0': { table: 'thirdTable', nextId: 1 }},
+          {'0': { table: 'fourthTable', nextId: 1 }}
+        ]
+        const tbls = this.rejs.getTables('firstTable', 'secondTable', 'thirdTable', 'fourthTable')
+
+        assert.deepEqual(expected, tbls)
+
+        this.rejs.dropTable('firstTable')
+        this.rejs.dropTable('secondTable')
+        this.rejs.dropTable('thirdTable')
+        this.rejs.dropTable('fourthTable')
+      })
+    })
+
     describe('newAndGetBenchmark', function() {
     it('can append and fetch a good amount of data', function() {
       for (let i = 0; i < 10; i++) {
