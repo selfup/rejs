@@ -2,9 +2,15 @@
 
 **File based database! Built for developer freedom.**
 
-Installation: `npm install selfup-rejs --save`
+**Installation:**
 
-Load package:
+`npm install selfup-rejs --save`
+
+**Ensure your data is safe and not in version control:**
+
+`echo 'selfup-rejs/*' >> .gitignore`
+
+**Load package:**
 
     const selfupRejs = require('selfup-rejs')
     const rejs = new selfupRejs
