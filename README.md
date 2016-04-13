@@ -54,8 +54,6 @@
 
 ### Test Coverage
 
-100% according to istanbul
-
 To get 100% coverage:
 
 ```
@@ -67,6 +65,8 @@ rm -rf selfup-rejs
 To run tests without coverage:
 
 `npm test`
+
+Pictures of coverage since I gitignored the coverage folder:
 
 ![](http://i.imgur.com/doE5Iex.png)
 
