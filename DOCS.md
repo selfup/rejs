@@ -25,7 +25,9 @@
 const Selfup = require('selfup-rejs')
 const rejs = new Selfup
 
+**
 \\ ** createTable **
+**
 
 rejs.createTable('exampleOne')
 
@@ -38,7 +40,9 @@ rejs.createTable('exampleOne')
 \\ This is to never be deleted. This data is required for the database to function.
 \\ It also makes your life easier!
 
+**
 \\ ** newData **
+**
 
 rejs.newData('exampleOne', {exampleData: "some example stuff"})
 
@@ -53,7 +57,17 @@ rejs.newData('exampleOne', {exampleData: "some example stuff"})
   '1': { exampleData: 'some example stuff' },
 }
 
+**
+\\ ** dropTable **
+**
+
+rejs.dropTable('exampleOne')
+
+\\ The table/file for exampleOne will now be deleted!
+
+**
 \\ ** updateTable **
+**
 
 rejs.createTable('testOne')
 rejs.newData('testOne',     {test: "old data"})
@@ -70,7 +84,9 @@ rejs.updateTable('testOne', {test: "new data"})
 \\ The exampleOne data will be wiped/replaced with the new data.
 \\ The metadata will go in first, and then the new object will go in right after.
 
+**
 \\ ** findId **
+**
 
 rejs.createTable('testOne')
 rejs.newData('testOne', {test: "old data"})
