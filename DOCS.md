@@ -56,8 +56,8 @@ rejs.newData('exampleOne', {exampleData: "some example stuff"})
 \\ ** updateTable **
 
 rejs.createTable('testOne')
-this.rejs.newData('testOne',     {test: "old data"})
-this.rejs.updateTable('testOne', {test: "new data"})
+rejs.newData('testOne',     {test: "old data"})
+rejs.updateTable('testOne', {test: "new data"})
 
 \\ What you find in the table:
 
@@ -72,8 +72,9 @@ this.rejs.updateTable('testOne', {test: "new data"})
 
 \\ ** findId **
 
-this.rejs.newData('testOne', {test: "old data"})
-this.rejs.findId('testOne', '1')
+rejs.createTable('testOne')
+rejs.newData('testOne', {test: "old data"})
+rejs.findId('testOne', '1')
 
 \\ You will now have have access to/be returned: {test: "old data"}
 
