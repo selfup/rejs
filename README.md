@@ -15,6 +15,10 @@
     const Selfup = require('selfup-rejs')
     const rejs = new Selfup
 
+**Official DOCS:**
+
+Documentation: [right here!](https://github.com/selfup/rejs/blob/master/DOCS.md)
+
 ### How to Use:
 
 * Using RESTful verbs to help explain from a high level what is happening.
