@@ -14,13 +14,16 @@
     "es6",
     "es7",
     "database",
+    "event based",
+    "event base",
     "key value store",
     "key",
     "value",
     "store",
     "nodebots",
     "raspberry pi",
-    "arduino"
+    "arduino",
+    "electron"
   ],
   "author": "selfup",
   "license": "MIT",
