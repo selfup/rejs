@@ -12,8 +12,8 @@
 
 **Load package:**
 
-    const selfupRejs = require('selfup-rejs')
-    const rejs = new selfupRejs
+    const Selfup = require('selfup-rejs')
+    const rejs = new Selfup
 
 ### How to Use:
 
