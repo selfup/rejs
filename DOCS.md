@@ -44,11 +44,11 @@ rejs.createTable('exampleOne')
 \\ ** newData **
 **
 
+rejs.createTable('exampleOne')
 rejs.newData('exampleOne', {exampleData: "some example stuff"})
 
 \\ Now your exampleData table will have the new object appended to the table.
 \\ A new ID will point to the object you appended. These ID's are event logs.
-
 
 \\ What you will find in the table:
 
@@ -71,6 +71,7 @@ rejs.dropTable('exampleOne')
 
 rejs.createTable('testOne')
 rejs.newData('testOne',     {test: "old data"})
+
 rejs.updateTable('testOne', {test: "new data"})
 
 \\ What you find in the table:
@@ -90,8 +91,81 @@ rejs.updateTable('testOne', {test: "new data"})
 
 rejs.createTable('testOne')
 rejs.newData('testOne', {test: "old data"})
+
 rejs.findId('testOne', '1')
 
 \\ You will now have have access to/be returned: {test: "old data"}
 
+**
+\\ ** deleteById **
+**
+
+rejs.createTable('testOne')
+rejs.newData('testOne', {test: "old data"})
+
+rejs.deleteById('testOne', '1')
+
+\\ You will now just have the metadata left in your table.
+\\ If you have 20 ID's, you can remove '16' and keep the rest!
+
+**
+\\ ** getTable **
+**
+
+rejs.createTable('testOne')
+rejs.newData('testOne', {test: "old data"})
+rejs.deleteById('testOne', '1')
+
+rejs.getTable('testOne')
+
+\\ This will return the entire table!
+
+{
+  '0': { table: 'testOne', nextId: 2 },
+  '1': { test: "old data" },
+}
+
+**
+\\ ** getTables **
+**
+
+rejs.createTable('testOne')
+rejs.newData('testOne', {test: "old data"})
+rejs.deleteById('testOne', '1')
+
+rejs.createTable('exampleOne')
+rejs.newData('exampleOne', {exampleData: "some example stuff"})
+
+rejs.getTables('exampleOne', 'testOne')
+
+\\ This will return both tables in a flat array:
+
+[
+  {
+    '0': { table: 'exampleOne', nextId: 2 },
+    '1': { exampleData: 'some example stuff' },
+  },
+  {
+    '0': { table: 'testOne', nextId: 2 },
+    '1': { test: "old data" },
+  }
+]
+
+**
+\\ ** where **
+**
+
+rejs.createTable('exampleOne')
+rejs.newData('exampleOne', {exampleData: "some example stuff"})
+rejs.newData('exampleOne', {exampleData: "top level text"} )
+rejs.newData('exampleOne', {exampleData: "top level text"})
+
+rejs.where('exampleOne', 'top level text')
+
+\\ This will return an array of all objects with the string searched for at the top level of the objects:
+
+[
+  {exampleData: "top level text"},
+  {exampleData: "top level text"}
+]
 ```
