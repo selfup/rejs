@@ -12,8 +12,12 @@
 
 **Load package:**
 
-    const selfupRejs = require('selfup-rejs')
-    const rejs = new selfupRejs
+    const Selfup = require('selfup-rejs')
+    const rejs = new Selfup
+
+**Official DOCS:**
+
+Documentation: [right here!](https://github.com/selfup/rejs/blob/master/DOCS.md)
 
 ### How to Use:
 
@@ -28,6 +32,7 @@
 * (DELETE) Drop a table: `rejs.dropTable('tablename')`
 * (PUT)    Replace/Overwrite a table: `rejs.updateTable('tablename', dataObject)`
 * (GET)    Table Object Query: `rejs.getTable('tablename')`
+* (GET)    Multi-Table Query: `rejs.getTables('table', 'table2', 'table3')`
 * (GET)    Find by ID: `rejs.findId('tablename', 'id')`
 * (GET)    Where/Select: `rejs.where('tablename', 'any value in a flat object')`
 
@@ -46,6 +51,13 @@
 * Store Data on a server hooked up to an Arduino
 * Store Data on an Arduino Yun/BeagleBone/etc...
 * Many possibilities for IoT
+
+#### Electron OSX/Windows Apps
+
+* Store file paths to load files needed on load
+* Store small notes for a twitter like notes app
+* Store image url's
+* Store any data that you need to persist from app shutdown back to open
 
 #### VPS
 
