@@ -19,12 +19,13 @@
 * (GET)    Find by ID: `rejs.findId('tablename', 'id')`
 * (GET)    Where/Select: `rejs.where('tablename', 'any value in a flat object')`
 
-
 # Examples below:
 
 ```
 const Selfup = require('selfup-rejs')
 const rejs = new Selfup
+
+\\ ** createTable **
 
 rejs.createTable('exampleOne')
 
@@ -34,18 +35,46 @@ rejs.createTable('exampleOne')
 \\ Inside of this file will be some basic metadata about the table
 \\ You will find an example like so: '0': { table: 'testOne', nextId: 3 }
 
-\\ This is never be deleted. This data is required for the database to function.
+\\ This is to never be deleted. This data is required for the database to function.
 \\ It also makes your life easier!
+
+\\ ** newData **
 
 rejs.newData('exampleOne', {exampleData: "some example stuff"})
 
 \\ Now your exampleData table will have the new object appended to the table.
 \\ A new ID will point to the object you appended. These ID's are event logs.
 
-rejs.updateTable('exampleOne', {ex: "data"})
 
+\\ What you will find in the table:
+
+{
+  '0': { table: 'exampleOne', nextId: 2 },
+  '1': { exampleData: 'some example stuff' },
+}
+
+\\ ** updateTable **
+
+rejs.createTable('testOne')
+this.rejs.newData('testOne',     {test: "old data"})
+this.rejs.updateTable('testOne', {test: "new data"})
+
+\\ What you find in the table:
+
+{
+  '0': { table: 'testOne', nextId: 2 },
+  '1': { test: 'new data' },
+}
+
+\\ As you can see, the old data has been wiped/replaced
 \\ The exampleOne data will be wiped/replaced with the new data.
 \\ The metadata will go in first, and then the new object will go in right after.
 
-\\ The findId/deleteById methods are pretty self explanatory at this point!
+\\ ** findId **
+
+this.rejs.newData('testOne', {test: "old data"})
+this.rejs.findId('testOne', '1')
+
+\\ You will now have have access to/be returned: {test: "old data"}
+
 ```
