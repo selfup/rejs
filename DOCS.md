@@ -2,9 +2,9 @@
 
 ### Things to consider:
 
-* If you can read javascript tests, skip the docs and just go read the tests
-* They are pretty verbose and will get you up to speed on how things work
-* If you like videos, here a link to the quick demo vid from the README: [vid](https://www.youtube.com/watch?v=dVTePMkw9EE&feature=youtu.be&a)
+* If you can read javascript tests, skip the docs and just go read the tests!
+* They are pretty verbose and will get you up to speed on how things work.
+* If you like videos, here is a link to the quick demo vid from the README: [vid](https://www.youtube.com/watch?v=dVTePMkw9EE&feature=youtu.be&a)
 * If you are not familiar with Javascript Testing Frameworks keep reading!
 
 # How this DB works:
