@@ -19,6 +19,14 @@
 
 Documentation: [right here!](https://github.com/selfup/rejs/blob/master/DOCS.md)
 
+### Example Use Case Repo:
+
+`NodeBots/JohnnyFive` and logging event data: [Repo](https://github.com/selfup/arduino-rejs)
+
+### Video on how to use selfup-rejs:
+
+[Link to Youtube Vid](https://www.youtube.com/watch?v=dVTePMkw9EE&feature=youtu.be&a)
+
 ### How to Use:
 
 * Using RESTful verbs to help explain from a high level what is happening.
@@ -35,12 +43,6 @@ Documentation: [right here!](https://github.com/selfup/rejs/blob/master/DOCS.md)
 * (GET)    Multi-Table Query: `rejs.getTables('table', 'table2', 'table3')`
 * (GET)    Find by ID: `rejs.findId('tablename', 'id')`
 * (GET)    Where/Select: `rejs.where('tablename', 'any value in a flat object')`
-
-### Video on how to use selfup-rejs:
-
-[Link to Youtube Vid](https://www.youtube.com/watch?v=dVTePMkw9EE&feature=youtu.be&a)
-
-### Example repo with `NodeBots/JohnnyFive` and logging event data: [Repo](https://github.com/selfup/arduino-rejs)
 
 ### Potential use Cases:
 
