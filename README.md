@@ -33,10 +33,11 @@ Documentation: [right here!](https://github.com/selfup/rejs/blob/master/DOCS.md)
 
 ### How to Use:
 
-* Using RESTful verbs to help explain from a high level what is happening.
-* This is not a server.
-* This is a database that writes and reads files on the server.
+Using RESTful verbs to help explain from a high level what is happening.
 
+This is not a server.
+
+This is a database that writes and reads files on the server.
 
 * (POST)   Create a table: `rejs.createTable('tablename')`
 * (POST)   Add data to table: `rejs.newData('tablename', dataObject)`
