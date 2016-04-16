@@ -2,6 +2,10 @@
 
 ### File based database! Built for developer freedom. Geared for NodeBots/IoT
 
+#### Event Based Key Value Store:
+
+Made to store hardware data on the filesystem!
+
 **Installation:**
 
 `npm install selfup-rejs --save`
