@@ -21,10 +21,18 @@
 
 # Examples below:
 
+*In each example, I call a `createTable('someTableName')` to mimic developer behavior. However I don't always call `rejs.dropTable('someTableName')` because each example is to be considered a new, independent example.*
+
+*I create the data for each example so that the steps needed for each method is clear.*
+
+How to have access to the package:
+
 ```
 const Selfup = require('selfup-rejs')
 const rejs = new Selfup
 ```
+
+This will make the `selfup-rejs` library available in your program.
 
 **createTable**
 
@@ -114,7 +122,6 @@ If you have 20 ID's, you can remove '16' and keep the rest!
 ```
 rejs.createTable('testOne')
 rejs.newData('testOne', {test: "old data"})
-rejs.deleteById('testOne', '1')
 
 rejs.getTable('testOne')
 ```

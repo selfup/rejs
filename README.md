@@ -1,6 +1,6 @@
 # Selfup - Rejs
 
-### File based database! Built for developer freedom. Geared for NodeBots and IoT
+### File based database! Built for developer freedom. Geared for NodeBots/IoT
 
 **Installation:**
 
