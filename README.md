@@ -40,6 +40,8 @@ Documentation: [right here!](https://github.com/selfup/rejs/blob/master/DOCS.md)
 
 [Link to Youtube Vid](https://www.youtube.com/watch?v=dVTePMkw9EE&feature=youtu.be&a)
 
+### Example repo with `NodeBots/JohnnyFive` and logging event data: [Repo](https://github.com/selfup/arduino-rejs)
+
 ### Potential use Cases:
 
 #### JohnnyFive/NodeBots/IoT
