@@ -1,6 +1,10 @@
 # Selfup - Rejs
 
-### File based database! Built for developer freedom. Geared for NodeBots and IoT
+### File based database! Built for developer freedom. Geared for NodeBots/IoT
+
+#### Event Based Key Value Store:
+
+Made to store hardware data on the filesystem!
 
 **Installation:**
 
@@ -19,12 +23,21 @@
 
 Documentation: [right here!](https://github.com/selfup/rejs/blob/master/DOCS.md)
 
+### Example Use Case Repo:
+
+`NodeBots/JohnnyFive` and logging event data: [Repo](https://github.com/selfup/arduino-rejs)
+
+### Video on how to use selfup-rejs:
+
+[Link to Youtube Vid](https://www.youtube.com/watch?v=dVTePMkw9EE&feature=youtu.be&a)
+
 ### How to Use:
 
-* Using RESTful verbs to help explain from a high level what is happening.
-* This is not a server.
-* This is a database that writes and reads files on the server.
+Using RESTful verbs to help explain from a high level what is happening.
 
+This is not a server.
+
+This is a database that writes and reads files on the server.
 
 * (POST)   Create a table: `rejs.createTable('tablename')`
 * (POST)   Add data to table: `rejs.newData('tablename', dataObject)`
@@ -35,10 +48,6 @@ Documentation: [right here!](https://github.com/selfup/rejs/blob/master/DOCS.md)
 * (GET)    Multi-Table Query: `rejs.getTables('table', 'table2', 'table3')`
 * (GET)    Find by ID: `rejs.findId('tablename', 'id')`
 * (GET)    Where/Select: `rejs.where('tablename', 'any value in a flat object')`
-
-### Video on how to use selfup-rejs:
-
-[Link to Youtube Vid](https://www.youtube.com/watch?v=dVTePMkw9EE&feature=youtu.be&a)
 
 ### Potential use Cases:
 
