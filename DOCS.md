@@ -13,6 +13,7 @@
 * (POST)   Add data to table: `rejs.newData('tablename', dataObject)`
 * (DELETE) Delete data by ID in a table: `rejs.deleteById('tablename', '2')`
 * (DELETE) Drop a table: `rejs.dropTable('tablename')`
+* (DELETE) Multi-Table Drop: `rejs.dropTables('firstTable', 'secondTable')`
 * (PUT)    Replace/Overwrite a table: `rejs.updateTable('tablename', dataObject)`
 * (GET)    Table Object Query: `rejs.getTable('tablename')`
 * (GET)    Multi-Table Query: `rejs.getTables('table', 'table2', 'table3')`
