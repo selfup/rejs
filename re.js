@@ -45,6 +45,10 @@ class Rejs {
     return JSON.parse(fs.readFileSync(`./selfup-rejs/${tableName}`, 'utf8'))
   }
 
+  getTables() {
+    return Array.from(arguments).map(table => this.getTable(table))
+  }
+
   findId(tableName, id) {
     return this.getTable(tableName)[id]
   }
@@ -54,10 +58,6 @@ class Rejs {
     const records    = _.values(whereTable)
     records.shift() // remove the metadata
     return _.filter(records, (record) => _.includes(record, prop))
-  }
-
-  getTables() {
-    return Array.from(arguments).map(table => this.getTable(table))
   }
 
   // private
