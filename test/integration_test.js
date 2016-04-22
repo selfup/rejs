@@ -111,7 +111,7 @@ describe('Rejs', function() {
       })
     })
 
-    describe('getTables: four', function() {
+    describe('getTables: four - dropTables: four', function() {
       it('returns an array of four tables', function() {
         this.rejs.createTable('firstTable')
         this.rejs.createTable('secondTable')
@@ -128,10 +128,7 @@ describe('Rejs', function() {
 
         assert.deepEqual(expected, tbls)
 
-        this.rejs.dropTable('firstTable')
-        this.rejs.dropTable('secondTable')
-        this.rejs.dropTable('thirdTable')
-        this.rejs.dropTable('fourthTable')
+        this.rejs.dropTables('firstTable', 'secondTable', 'thirdTable', 'fourthTable')
       })
     })
 

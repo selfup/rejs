@@ -32,6 +32,10 @@ class Rejs {
     fs.unlinkSync(`./selfup-rejs/${tableName}`)
   }
 
+  dropTables() {
+    return Array.from(arguments).map(table => this.dropTable(table))
+  }
+
   updateTable(tableName, data) {
     this[_resetTable](tableName)
     this.newData(tableName, data)
