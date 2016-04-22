@@ -72,6 +72,17 @@ What you will find in the table:
 
 The table/file for exampleOne will now be deleted!
 
+**dropTables**
+
+```
+rejs.createTable('firstTable')
+rejs.createTable('firstTable')
+
+rejs.dropTables('firstTable', 'secondTable')
+```
+
+Now all tables given as arguments will be dropped!
+
 **updateTable**
 
 ```
