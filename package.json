@@ -1,6 +1,6 @@
 {
   "name": "selfup-rejs",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "Event based, key value store on the file system. Basic server side db in js for node developers. Geared towards NodeBots/IoT.",
   "main": "re.js",
   "scripts": {
