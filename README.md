@@ -40,6 +40,7 @@ This is not a server.
 This is a database that writes and reads files on the server.
 
 * (POST)   Create a table: `rejs.createTable('tablename')`
+* (POST)   Create Multiple Tables: `rejs.createTables('one', 'two', 'three')`
 * (POST)   Add data to table: `rejs.newData('tablename', dataObject)`
 * (DELETE) Delete data by ID in a table: `rejs.deleteById('tablename', '2')`
 * (DELETE) Drop a table: `rejs.dropTable('tablename')`

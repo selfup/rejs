@@ -10,6 +10,7 @@
 # How this DB works:
 
 * (POST)   Create a table: `rejs.createTable('tablename')`
+* (POST)   Create Multiple Tables: `rejs.createTables('one', 'two', 'three')`
 * (POST)   Add data to table: `rejs.newData('tablename', dataObject)`
 * (DELETE) Delete data by ID in a table: `rejs.deleteById('tablename', '2')`
 * (DELETE) Drop a table: `rejs.dropTable('tablename')`
@@ -42,11 +43,24 @@ This will make the `selfup-rejs` library available in your program.
 There will now be a folder called 'selfup-rejs'
 This folder will now contain a file with no extension named: exampleOne
 
+Create table will not re-create a new table if it already exist! 
+
 Inside of this file will be some basic metadata about the table
 You will find an example like so: `'0': { table: 'testOne', nextId: 3 }`
 
 This is to never be deleted. This data is required for the database to function.
 It also makes your life easier!
+
+**createTables**
+
+`rejs.createTables('one', 'two', 'three')`
+
+There will now be a folder called 'selfup-rejs'
+This folder will now contain three files with no extension named: 
+
+one, two, and three
+
+Create tables will not re-create new tables if they already exist!
 
 **newData**
 

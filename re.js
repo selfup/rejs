@@ -19,6 +19,10 @@ class Rejs {
     if (fs.existsSync(`./selfup-rejs/${tableName}`)) return
     this[_resetTable](tableName)
   }
+  
+  createTables() {
+    return Array.from(arguments).map(table => this.createTable(table))
+  }
 
   newData(tableName, data) {
     this[_modifyTable](tableName, t => t[t[0].nextId++] = data)
