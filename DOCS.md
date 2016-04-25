@@ -10,10 +10,28 @@
 # How this DB works:
 
 * (POST)   Create a table: `rejs.createTable('tablename')`
+* (POST)   Create Multiple Tables: `rejs.createTables('one', 'two', 'three')`
 * (POST)   Add data to table: `rejs.newData('tablename', dataObject)`
+* **(POST)   Add data to Multiple Tables:**
+```
+rejs.newDatas(
+  ['firstTable', {test: "data"}],
+  ['secondTable', {test: "data"}],
+  ['thirdTable', {test: "data"}]
+)
+```
 * (DELETE) Delete data by ID in a table: `rejs.deleteById('tablename', '2')`
 * (DELETE) Drop a table: `rejs.dropTable('tablename')`
+* (DELETE) Multi-Table Drop: `rejs.dropTables('firstTable', 'secondTable')`
 * (PUT)    Replace/Overwrite a table: `rejs.updateTable('tablename', dataObject)`
+* **(PUT)    Replace/Overwrite Multiple tables:**
+```
+rejs.updateTables(
+  ['firstTable', {test: "new data"}],
+  ['secondTable', {test: "new data"}],
+  ['thirdTable', {test: "new data"}]
+)
+```
 * (GET)    Table Object Query: `rejs.getTable('tablename')`
 * (GET)    Multi-Table Query: `rejs.getTables('table', 'table2', 'table3')`
 * (GET)    Find by ID: `rejs.findId('tablename', 'id')`
@@ -41,11 +59,24 @@ This will make the `selfup-rejs` library available in your program.
 There will now be a folder called 'selfup-rejs'
 This folder will now contain a file with no extension named: exampleOne
 
+Create table will not re-create a new table if it already exist!
+
 Inside of this file will be some basic metadata about the table
 You will find an example like so: `'0': { table: 'testOne', nextId: 3 }`
 
 This is to never be deleted. This data is required for the database to function.
 It also makes your life easier!
+
+**createTables**
+
+`rejs.createTables('one', 'two', 'three')`
+
+There will now be a folder called 'selfup-rejs'
+This folder will now contain three files with no extension named:
+
+one, two, and three
+
+Create tables will not re-create new tables if they already exist!
 
 **newData**
 
@@ -66,11 +97,26 @@ What you will find in the table:
 }
 ```
 
+**newDatas**
+
+Works like above, just use arrays as arguments like in the REST verbs section.
+
 **dropTable**
 
 `rejs.dropTable('exampleOne')`
 
 The table/file for exampleOne will now be deleted!
+
+**dropTables**
+
+```
+rejs.createTable('firstTable')
+rejs.createTable('firstTable')
+
+rejs.dropTables('firstTable', 'secondTable')
+```
+
+Now all tables given as arguments will be dropped!
 
 **updateTable**
 
@@ -93,6 +139,10 @@ What you find in the table:
 As you can see, the old data has been wiped/replaced
 The exampleOne data will be wiped/replaced with the new data.
 The metadata will go in first, and then the new object will go in right after.
+
+**updateTables**
+
+Works like above, just use arrays as arguments like in the REST verbs section.
 
 **findId**
 

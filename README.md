@@ -10,6 +10,13 @@ Made to store hardware data on the filesystem!
 
 `npm install selfup-rejs --save`
 
+
+**Warning**
+
+This was built with node 5.10 +
+
+Please make sure your node version supports ES6!
+
 **Ensure your data is safe and not in version control:**
 
 `echo 'selfup-rejs/*' >> .gitignore`
@@ -23,7 +30,13 @@ Made to store hardware data on the filesystem!
 
 Documentation: [right here!](https://github.com/selfup/rejs/blob/master/DOCS.md)
 
-### Example Use Case Repo:
+### Example Use Case Repos:
+
+**Raspberry Pi**
+
+`NodeBots/JohnnyFive` and logging event data: [Repo](https://github.com/selfup/rpi-rejs)
+
+**Arduino**
 
 `NodeBots/JohnnyFive` and logging event data: [Repo](https://github.com/selfup/arduino-rejs)
 
@@ -39,11 +52,31 @@ This is not a server.
 
 This is a database that writes and reads files on the server.
 
+**Verbs/Methods**
+
 * (POST)   Create a table: `rejs.createTable('tablename')`
+* (POST)   Create Multiple Tables: `rejs.createTables('one', 'two', 'three')`
 * (POST)   Add data to table: `rejs.newData('tablename', dataObject)`
+* **(POST)   Add data to Multiple Tables:**
+```
+rejs.newDatas(
+    ['firstTable', {test: "data"}],
+    ['secondTable', {test: "data"}],
+    ['thirdTable', {test: "data"}]
+)
+```
 * (DELETE) Delete data by ID in a table: `rejs.deleteById('tablename', '2')`
 * (DELETE) Drop a table: `rejs.dropTable('tablename')`
+* (DELETE) Multi-Table Drop: `rejs.dropTables('firstTable', 'secondTable')`
 * (PUT)    Replace/Overwrite a table: `rejs.updateTable('tablename', dataObject)`
+* **(PUT)    Replace/Overwrite Multiple tables:**
+```
+rejs.updateTables(
+    ['firstTable', {test: "new data"}],
+    ['secondTable', {test: "new data"}],
+    ['thirdTable', {test: "new data"}]
+)
+```
 * (GET)    Table Object Query: `rejs.getTable('tablename')`
 * (GET)    Multi-Table Query: `rejs.getTables('table', 'table2', 'table3')`
 * (GET)    Find by ID: `rejs.findId('tablename', 'id')`
@@ -90,12 +123,8 @@ Then you can run:
 
 Now the selfup-rejs folder will be in your directory again!
 
+![](http://i.imgur.com/CAEz4uU.png)
+
 #### To run tests without coverage:
 
 `npm test`
-
-Pictures of coverage since I gitignored the coverage folder:
-
-![](http://i.imgur.com/doE5Iex.png)
-
-![](http://i.imgur.com/9E969Dp.png)

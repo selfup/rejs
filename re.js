@@ -7,6 +7,7 @@ const _resetTable   = Symbol('resetTable')
 const _modifyTable  = Symbol('modifyTable')
 const _replaceTable = Symbol('replaceTable')
 const _initialData  = Symbol('initialData')
+const _multiCall    = Symbol('multiCall')
 
 class Rejs {
   constructor() {
@@ -20,8 +21,16 @@ class Rejs {
     this[_resetTable](tableName)
   }
 
+  createTables() {
+    return Array.from(arguments).map(table => this.createTable(table))
+  }
+
   newData(tableName, data) {
     this[_modifyTable](tableName, t => t[t[0].nextId++] = data)
+  }
+
+  newDatas() {
+    return Array.from(arguments).map(arg => this.newData(arg[0], arg[1]))
   }
 
   deleteById(tableName, id) {
@@ -32,13 +41,25 @@ class Rejs {
     fs.unlinkSync(`./selfup-rejs/${tableName}`)
   }
 
+  dropTables() {
+    return this[_multiCall](Array.from(arguments), this.dropTable)
+  }
+
   updateTable(tableName, data) {
     this[_resetTable](tableName)
     this.newData(tableName, data)
   }
 
+  updateTables() {
+    return Array.from(arguments).map(arg => this.updateTable(arg[0], arg[1]))
+  }
+
   getTable(tableName) {
     return JSON.parse(fs.readFileSync(`./selfup-rejs/${tableName}`, 'utf8'))
+  }
+
+  getTables() {
+    return this[_multiCall](Array.from(arguments), this.getTable)
   }
 
   findId(tableName, id) {
@@ -52,11 +73,11 @@ class Rejs {
     return _.filter(records, (record) => _.includes(record, prop))
   }
 
-  getTables() {
-    return Array.from(arguments).map(table => this.getTable(table))
+  // private
+  [_multiCall](args, fn) {
+    return args.map(table => fn(table))
   }
 
-  // private
   [_replaceTable](tableName, data) {
     fs.writeFileSync(`./selfup-rejs/${tableName}`, JSON.stringify(data))
   }
