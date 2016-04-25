@@ -97,6 +97,10 @@ What you will find in the table:
 }
 ```
 
+**newDatas**
+
+Works like above, just use arrays as arguments like in the REST verbs section.
+
 **dropTable**
 
 `rejs.dropTable('exampleOne')`
@@ -135,6 +139,10 @@ What you find in the table:
 As you can see, the old data has been wiped/replaced
 The exampleOne data will be wiped/replaced with the new data.
 The metadata will go in first, and then the new object will go in right after.
+
+**updateTables**
+
+Works like above, just use arrays as arguments like in the REST verbs section.
 
 **findId**
 
