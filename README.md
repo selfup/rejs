@@ -46,10 +46,26 @@ This is a database that writes and reads files on the server.
 * (POST)   Create a table: `rejs.createTable('tablename')`
 * (POST)   Create Multiple Tables: `rejs.createTables('one', 'two', 'three')`
 * (POST)   Add data to table: `rejs.newData('tablename', dataObject)`
+* **(POST)   Add data to Multiple Tables:**
+```
+rejs.newDatas(
+    ['firstTable', {test: "data"}],
+    ['secondTable', {test: "data"}],
+    ['thirdTable', {test: "data"}]
+)
+```
 * (DELETE) Delete data by ID in a table: `rejs.deleteById('tablename', '2')`
 * (DELETE) Drop a table: `rejs.dropTable('tablename')`
 * (DELETE) Multi-Table Drop: `rejs.dropTables('firstTable', 'secondTable')`
 * (PUT)    Replace/Overwrite a table: `rejs.updateTable('tablename', dataObject)`
+* **(PUT)    Replace/Overwrite Multiple tables:**
+```
+rejs.updateTables(
+    ['firstTable', {test: "new data"}],
+    ['secondTable', {test: "new data"}],
+    ['thirdTable', {test: "new data"}]
+)
+```
 * (GET)    Table Object Query: `rejs.getTable('tablename')`
 * (GET)    Multi-Table Query: `rejs.getTables('table', 'table2', 'table3')`
 * (GET)    Find by ID: `rejs.findId('tablename', 'id')`
