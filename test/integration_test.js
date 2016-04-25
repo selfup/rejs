@@ -124,7 +124,7 @@ describe('Rejs', function() {
   })
 
   describe('getTables: four - dropTables: four - createTable: four', function() {
-    it('gets 4 - drops 4 - create 4: tables', function() {
+    it('gets 4 - drops 4 - creates 4: tables', function() {
       this.rejs.createTables(
         'firstTable',
         'secondTable',
