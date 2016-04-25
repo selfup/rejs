@@ -10,6 +10,10 @@ Made to store hardware data on the filesystem!
 
 `npm install selfup-rejs --save`
 
+This was built with node 5.10 +
+
+Please make sure your node version supports ES6!
+
 **Ensure your data is safe and not in version control:**
 
 `echo 'selfup-rejs/*' >> .gitignore`

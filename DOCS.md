@@ -12,10 +12,26 @@
 * (POST)   Create a table: `rejs.createTable('tablename')`
 * (POST)   Create Multiple Tables: `rejs.createTables('one', 'two', 'three')`
 * (POST)   Add data to table: `rejs.newData('tablename', dataObject)`
+* **(POST)   Add data to Multiple Tables:**
+```
+rejs.newDatas(
+    ['firstTable', {test: "data"}],
+    ['secondTable', {test: "data"}],
+    ['thirdTable', {test: "data"}]
+)
+```
 * (DELETE) Delete data by ID in a table: `rejs.deleteById('tablename', '2')`
 * (DELETE) Drop a table: `rejs.dropTable('tablename')`
 * (DELETE) Multi-Table Drop: `rejs.dropTables('firstTable', 'secondTable')`
 * (PUT)    Replace/Overwrite a table: `rejs.updateTable('tablename', dataObject)`
+* **(PUT)    Replace/Overwrite Multiple tables:**
+```
+rejs.updateTables(
+    ['firstTable', {test: "new data"}],
+    ['secondTable', {test: "new data"}],
+    ['thirdTable', {test: "new data"}]
+)
+```
 * (GET)    Table Object Query: `rejs.getTable('tablename')`
 * (GET)    Multi-Table Query: `rejs.getTables('table', 'table2', 'table3')`
 * (GET)    Find by ID: `rejs.findId('tablename', 'id')`
@@ -43,7 +59,7 @@ This will make the `selfup-rejs` library available in your program.
 There will now be a folder called 'selfup-rejs'
 This folder will now contain a file with no extension named: exampleOne
 
-Create table will not re-create a new table if it already exist! 
+Create table will not re-create a new table if it already exist!
 
 Inside of this file will be some basic metadata about the table
 You will find an example like so: `'0': { table: 'testOne', nextId: 3 }`
@@ -56,7 +72,7 @@ It also makes your life easier!
 `rejs.createTables('one', 'two', 'three')`
 
 There will now be a folder called 'selfup-rejs'
-This folder will now contain three files with no extension named: 
+This folder will now contain three files with no extension named:
 
 one, two, and three
 
