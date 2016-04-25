@@ -7,6 +7,7 @@ const _resetTable   = Symbol('resetTable')
 const _modifyTable  = Symbol('modifyTable')
 const _replaceTable = Symbol('replaceTable')
 const _initialData  = Symbol('initialData')
+const _multiCall    = Symbol('multiCall')
 
 class Rejs {
   constructor() {
@@ -41,7 +42,7 @@ class Rejs {
   }
 
   dropTables() {
-    return Array.from(arguments).map(table => this.dropTable(table))
+    return this[_multiCall](Array.from(arguments), this.dropTable)
   }
 
   updateTable(tableName, data) {
@@ -58,7 +59,7 @@ class Rejs {
   }
 
   getTables() {
-    return Array.from(arguments).map(table => this.getTable(table))
+    return this[_multiCall](Array.from(arguments), this.getTable)
   }
 
   findId(tableName, id) {
@@ -73,6 +74,10 @@ class Rejs {
   }
 
   // private
+  [_multiCall](args, fn) {
+    return args.map(table => fn(table))
+  }
+
   [_replaceTable](tableName, data) {
     fs.writeFileSync(`./selfup-rejs/${tableName}`, JSON.stringify(data))
   }

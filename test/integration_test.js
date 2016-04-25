@@ -125,7 +125,12 @@ describe('Rejs', function() {
 
   describe('getTables: four - dropTables: four - createTable: four', function() {
     it('returns an array of four tables', function() {
-      this.rejs.createTables('firstTable', 'secondTable', 'thirdTable', 'fourthTable')
+      this.rejs.createTables(
+        'firstTable',
+        'secondTable',
+        'thirdTable',
+        'fourthTable'
+      )
 
       const expected = [
         {'0': { table: 'firstTable', nextId: 1 }},
