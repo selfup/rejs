@@ -129,6 +129,4 @@ Now the selfup-rejs folder will be in your directory again!
 
 Pictures of coverage since I gitignored the coverage folder:
 
-![](http://i.imgur.com/doE5Iex.png)
-
-![](http://i.imgur.com/9E969Dp.png)
+![](http://i.imgur.com/l2mkNzL.png)
