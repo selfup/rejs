@@ -159,7 +159,10 @@ describe('Rejs', function() {
 
   describe('newDatas and updateTables', function() {
     it('replaces the data in multiple tables', function() {
-      this.rejs.createTables('firstTable', 'secondTable', 'thirdTable')
+      this.rejs.createTables('firstTable',
+        'secondTable',
+        'thirdTable'
+      )
 
       this.rejs.newDatas(
         ['firstTable', {test: "old data"}],
