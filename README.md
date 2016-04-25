@@ -10,6 +10,9 @@ Made to store hardware data on the filesystem!
 
 `npm install selfup-rejs --save`
 
+
+**Warning**
+
 This was built with node 5.10 +
 
 Please make sure your node version supports ES6!
@@ -27,7 +30,13 @@ Please make sure your node version supports ES6!
 
 Documentation: [right here!](https://github.com/selfup/rejs/blob/master/DOCS.md)
 
-### Example Use Case Repo:
+### Example Use Case Repos:
+
+**Raspberry Pi**
+
+`NodeBots/JohnnyFive` and logging event data: [Repo](https://github.com/selfup/rpi-rejs)
+
+**Arduino**
 
 `NodeBots/JohnnyFive` and logging event data: [Repo](https://github.com/selfup/arduino-rejs)
 
