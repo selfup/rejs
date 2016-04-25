@@ -52,6 +52,8 @@ This is not a server.
 
 This is a database that writes and reads files on the server.
 
+**Verbs/Methods**
+
 * (POST)   Create a table: `rejs.createTable('tablename')`
 * (POST)   Create Multiple Tables: `rejs.createTables('one', 'two', 'three')`
 * (POST)   Add data to table: `rejs.newData('tablename', dataObject)`
