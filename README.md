@@ -123,10 +123,8 @@ Then you can run:
 
 Now the selfup-rejs folder will be in your directory again!
 
+![](http://i.imgur.com/l2mkNzL.png)
+
 #### To run tests without coverage:
 
 `npm test`
-
-Pictures of coverage since I gitignored the coverage folder:
-
-![](http://i.imgur.com/l2mkNzL.png)
