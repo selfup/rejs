@@ -129,6 +129,42 @@ describe('Rejs', function() {
       })
     })
 
+    describe('newDatas and updateTables', function() {
+      it('replaces the data in multiple tables', function() {
+        this.rejs.createTables('firstTable', 'secondTable', 'thirdTable')
+
+        this.rejs.newDatas(
+          ['firstTable', {test: "old data"}],
+          ['secondTable', {test: "old data"}],
+          ['thirdTable', {test: "old data"}]
+        )
+
+        this.rejs.updateTables(
+          ['firstTable', {test: "new data"}],
+          ['secondTable', {test: "new data"}],
+          ['thirdTable', {test: "new data"}]
+        )
+
+        const expected = [
+          {
+            '0': { table: 'firstTable', nextId: 2 },
+            '1': { test: 'new data' },
+          },
+          {
+            '0': { table: 'secondTable', nextId: 2 },
+            '1': { test: 'new data' },
+          },
+          {
+            '0': { table: 'thirdTable', nextId: 2 },
+            '1': { test: 'new data' },
+          }
+        ]
+
+        assert.deepEqual(expected, this.rejs.getTables('firstTable', 'secondTable', 'thirdTable'))
+        this.rejs.dropTables('firstTable', 'secondTable', 'thirdTable')
+      })
+    })
+
     describe('newAndGetBenchmark', function() {
     it('can append and fetch a good amount of data', function() {
       for (let i = 0; i < 10; i++) {

@@ -19,13 +19,17 @@ class Rejs {
     if (fs.existsSync(`./selfup-rejs/${tableName}`)) return
     this[_resetTable](tableName)
   }
-  
+
   createTables() {
     return Array.from(arguments).map(table => this.createTable(table))
   }
 
   newData(tableName, data) {
     this[_modifyTable](tableName, t => t[t[0].nextId++] = data)
+  }
+
+  newDatas() {
+    return Array.from(arguments).map(arg => this.newData(arg[0], arg[1]))
   }
 
   deleteById(tableName, id) {
@@ -43,6 +47,10 @@ class Rejs {
   updateTable(tableName, data) {
     this[_resetTable](tableName)
     this.newData(tableName, data)
+  }
+
+  updateTables() {
+    return Array.from(arguments).map(arg => this.updateTable(arg[0], arg[1]))
   }
 
   getTable(tableName) {
