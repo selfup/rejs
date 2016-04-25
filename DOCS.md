@@ -15,9 +15,9 @@
 * **(POST)   Add data to Multiple Tables:**
 ```
 rejs.newDatas(
-    ['firstTable', {test: "data"}],
-    ['secondTable', {test: "data"}],
-    ['thirdTable', {test: "data"}]
+  ['firstTable', {test: "data"}],
+  ['secondTable', {test: "data"}],
+  ['thirdTable', {test: "data"}]
 )
 ```
 * (DELETE) Delete data by ID in a table: `rejs.deleteById('tablename', '2')`
@@ -27,9 +27,9 @@ rejs.newDatas(
 * **(PUT)    Replace/Overwrite Multiple tables:**
 ```
 rejs.updateTables(
-    ['firstTable', {test: "new data"}],
-    ['secondTable', {test: "new data"}],
-    ['thirdTable', {test: "new data"}]
+  ['firstTable', {test: "new data"}],
+  ['secondTable', {test: "new data"}],
+  ['thirdTable', {test: "new data"}]
 )
 ```
 * (GET)    Table Object Query: `rejs.getTable('tablename')`
