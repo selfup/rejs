@@ -1,11 +1,11 @@
 'use strict'
 
-const assert = require('chai').assert;
-const r      = require('../re.js')
+const assert = require('chai').assert
+const Selfup = require('../re.js')
 
 describe('Rejs', function() {
   beforeEach(function() {
-    this.rejs = new r
+    this.rejs = new Selfup
     this.rejs.createTable('testOne')
   })
 
