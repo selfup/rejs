@@ -2,6 +2,11 @@
 
 ### Things to consider:
 
+**As @cite-reader mentioned in this [issue](https://github.com/selfup/rejs/issues/13): **
+
+*This database is only as strong as the `fs.writeFileSync` method provided by the `fs` module API.
+*This mean that is there is a power failure or what have you during a table update/write event, your data will more than likely be lost forever!
+
 * If you can read javascript tests, skip the docs and just go read the tests!
 * They are pretty verbose and will get you up to speed on how things work.
 * If you like videos, here is a link to the quick demo vid from the README: [vid](https://www.youtube.com/watch?v=dVTePMkw9EE&feature=youtu.be&a)
