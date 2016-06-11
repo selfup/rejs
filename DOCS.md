@@ -2,7 +2,7 @@
 
 ### Things to consider:
 
-##### As @cite-reader mentioned in this [issue](https://github.com/selfup/rejs/issues/13):
+##### As [cite-reader](https://github.com/cite-reader) mentioned in this [issue](https://github.com/selfup/rejs/issues/13):
 
 
 ##### This database is only as strong as the `fs.writeFileSync` method provided by the `fs` module API
