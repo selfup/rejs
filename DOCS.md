@@ -6,7 +6,7 @@
 
 
 ##### This database is only as strong as the `fs.writeFileSync` method provided by the `fs` module API
-##### This means that if there is a power failure or what have you during a table update/write event, your data will more than likely be lost forever!
+##### This means that if there is a power failure during a table update/write event, your data will more than likely be gone!
 
 * If you can read javascript tests, skip the docs and just go read the tests!
 * They are pretty verbose and will get you up to speed on how things work.
