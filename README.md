@@ -23,8 +23,10 @@ Please make sure your node version supports ES6!
 
 **Load package:**
 
+```js
     const Selfup = require('selfup-rejs')
     const rejs = new Selfup
+```
 
 **Official DOCS:**
 
@@ -58,7 +60,7 @@ This is a database that writes and reads files on the server.
 * (POST)   Create Multiple Tables: `rejs.createTables('one', 'two', 'three')`
 * (POST)   Add data to table: `rejs.newData('tablename', dataObject)`
 * **(POST)   Add data to Multiple Tables:**
-```
+```js
 rejs.newDatas(
     ['firstTable', {test: "data"}],
     ['secondTable', {test: "data"}],
@@ -70,7 +72,7 @@ rejs.newDatas(
 * (DELETE) Multi-Table Drop: `rejs.dropTables('firstTable', 'secondTable')`
 * (PUT)    Replace/Overwrite a table: `rejs.updateTable('tablename', dataObject)`
 * **(PUT)    Replace/Overwrite Multiple tables:**
-```
+```js
 rejs.updateTables(
     ['firstTable', {test: "new data"}],
     ['secondTable', {test: "new data"}],
@@ -112,7 +114,7 @@ rejs.updateTables(
 
 If the `selfup-rejs` folder is in your directory:
 
-```
+```sh
 npm install
 rm -rf selfup-rejs
 ```
