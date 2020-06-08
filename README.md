@@ -10,7 +10,6 @@ Made to store hardware data on the filesystem!
 
 `npm install selfup-rejs --save`
 
-
 **Warning**
 
 This was built with node 5.10 +
@@ -24,8 +23,8 @@ Please make sure your node version supports ES6!
 **Load package:**
 
 ```js
-    const Selfup = require('selfup-rejs')
-    const rejs = new Selfup
+const Rejs = require('selfup-rejs');
+const rejs = new Rejs();
 ```
 
 **Official DOCS:**
@@ -56,57 +55,61 @@ This is a database that writes and reads files on the server.
 
 **Verbs/Methods**
 
-* (POST)   Create a table: `rejs.createTable('tablename')`
-* (POST)   Create Multiple Tables: `rejs.createTables('one', 'two', 'three')`
-* (POST)   Add data to table: `rejs.newData('tablename', dataObject)`
-* **(POST)   Add data to Multiple Tables:**
+- (POST) Create a table: `rejs.createTable('tablename')`
+- (POST) Create Multiple Tables: `rejs.createTables('one', 'two', 'three')`
+- (POST) Add data to table: `rejs.newData('tablename', dataObject)`
+- **(POST) Add data to Multiple Tables:**
+
 ```js
 rejs.newDatas(
-    ['firstTable', {test: "data"}],
-    ['secondTable', {test: "data"}],
-    ['thirdTable', {test: "data"}]
-)
+  ['firstTable', { test: 'data' }],
+  ['secondTable', { test: 'data' }],
+  ['thirdTable', { test: 'data' }],
+);
 ```
-* (DELETE) Delete data by ID in a table: `rejs.deleteById('tablename', '2')`
-* (DELETE) Drop a table: `rejs.dropTable('tablename')`
-* (DELETE) Multi-Table Drop: `rejs.dropTables('firstTable', 'secondTable')`
-* (PUT)    Replace/Overwrite a table: `rejs.updateTable('tablename', dataObject)`
-* **(PUT)    Replace/Overwrite Multiple tables:**
+
+- (DELETE) Delete data by ID in a table: `rejs.deleteById('tablename', '2')`
+- (DELETE) Drop a table: `rejs.dropTable('tablename')`
+- (DELETE) Multi-Table Drop: `rejs.dropTables('firstTable', 'secondTable')`
+- (PUT) Replace/Overwrite a table: `rejs.updateTable('tablename', dataObject)`
+- **(PUT) Replace/Overwrite Multiple tables:**
+
 ```js
 rejs.updateTables(
-    ['firstTable', {test: "new data"}],
-    ['secondTable', {test: "new data"}],
-    ['thirdTable', {test: "new data"}]
-)
+  ['firstTable', { test: 'new data' }],
+  ['secondTable', { test: 'new data' }],
+  ['thirdTable', { test: 'new data' }],
+);
 ```
-* (GET)    Table Object Query: `rejs.getTable('tablename')`
-* (GET)    Multi-Table Query: `rejs.getTables('table', 'table2', 'table3')`
-* (GET)    Find by ID: `rejs.findId('tablename', 'id')`
-* (GET)    Where/Select: `rejs.where('tablename', 'any value in a flat object')`
+
+- (GET) Table Object Query: `rejs.getTable('tablename')`
+- (GET) Multi-Table Query: `rejs.getTables('table', 'table2', 'table3')`
+- (GET) Find by ID: `rejs.findId('tablename', 'id')`
+- (GET) Where/Select: `rejs.where('tablename', 'any value in a flat object')`
 
 ### Potential use Cases:
 
 #### JohnnyFive/NodeBots/IoT
 
-* Store temperature data over time
-* Store how many times a door has been opened
-* Store telemetry data
-* Store Data on a Raspberry Pi
-* Store Data on a server hooked up to an Arduino
-* Store Data on an Arduino Yun/BeagleBone/etc...
-* Many possibilities for IoT
+- Store temperature data over time
+- Store how many times a door has been opened
+- Store telemetry data
+- Store Data on a Raspberry Pi
+- Store Data on a server hooked up to an Arduino
+- Store Data on an Arduino Yun/BeagleBone/etc...
+- Many possibilities for IoT
 
 #### Electron OSX/Windows Apps
 
-* Store file paths to load files needed on load
-* Store small notes for a twitter like notes app
-* Store image url's
-* Store any data that you need to persist from app shutdown back to open
+- Store file paths to load files needed on load
+- Store small notes for a twitter like notes app
+- Store image url's
+- Store any data that you need to persist from app shutdown back to open
 
 #### VPS
 
-* Use it as a small DB for a low volume production app
-* Use it to get quickly set up, and then move on to Mongo/Postgres once your app is mature and MVP is proven
+- Use it as a small DB for a low volume production app
+- Use it to get quickly set up, and then move on to Mongo/Postgres once your app is mature and MVP is proven
 
 ### Test Coverage
 
