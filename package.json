@@ -1,6 +1,6 @@
 {
   "name": "selfup-rejs",
-  "version": "1.0.21",
+  "version": "1.0.31",
   "description": "Event based, key value store on the file system. Basic server side db in js for node developers. Geared towards NodeBots/IoT.",
   "main": "re.js",
   "scripts": {
@@ -31,12 +31,9 @@
     "url": "https://github.com/selfup/rejs"
   },
   "homepage": "https://github.com/selfup/rejs",
-  "dependencies": {
-    "lodash": "^4.9.0"
-  },
   "devDependencies": {
     "chai": "^3.5.0",
-    "istanbul": "^0.4.3",
+    "nyc": "^15.1.0",
     "mocha": "^7.2.0"
   }
 }

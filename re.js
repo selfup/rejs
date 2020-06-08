@@ -1,5 +1,4 @@
 const fs = require('fs');
-const { values, filter, includes } = require('lodash');
 
 const _resetTable = Symbol('resetTable');
 const _modifyTable = Symbol('modifyTable');
@@ -80,11 +79,11 @@ class Rejs {
 
   where(tableName, prop) {
     const whereTable = this.getTable(tableName);
-    const records = values(whereTable);
+    const records = Object.values(whereTable);
 
     records.shift();
 
-    return filter(records, (record) => includes(record, prop));
+    return records.filter((record) => JSON.stringify(record).includes(prop));
   }
 
   [_multiCall](args, fn) {
