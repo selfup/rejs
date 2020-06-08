@@ -12,9 +12,7 @@ Made to store hardware data on the filesystem!
 
 **Warning**
 
-This was built with node 5.10 +
-
-Please make sure your node version supports ES6!
+This was built with node v14.4.0
 
 **Ensure your data is safe and not in version control:**
 
