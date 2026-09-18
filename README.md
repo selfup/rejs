@@ -83,7 +83,7 @@ rejs.updateTables(
 - (GET) Table Object Query: `rejs.getTable('tablename')`
 - (GET) Multi-Table Query: `rejs.getTables('table', 'table2', 'table3')`
 - (GET) Find by ID: `rejs.findId('tablename', 'id')`
-- (GET) Where/Select: `rejs.where('tablename', 'any value in a flat object')`
+- (GET) Where/Select: `rejs.where('tablename', 'any key or value in a flat object')`
 
 ### Potential use Cases:
 
@@ -113,18 +113,14 @@ rejs.updateTables(
 
 #### To get 100% coverage:
 
-If the `selfup-rejs` folder is in your directory:
-
 ```sh
 npm install
-rm -rf selfup-rejs
+npm run coverage
 ```
 
-Then you can run:
-
-`./node_modules/.bin/istanbul cover _mocha`
-
-Now the selfup-rejs folder will be in your directory again!
+Tests run in a temporary directory, so your existing `selfup-rejs` data is not
+touched. Coverage is checked against a 100% threshold, so the script exits
+non-zero if any statements, branches, functions, or lines are uncovered.
 
 #### To run tests without coverage:
 

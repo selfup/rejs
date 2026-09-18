@@ -4,7 +4,8 @@
   "description": "Event based, key value store on the file system. Basic server side db in js for node developers. Geared towards NodeBots/IoT.",
   "main": "index",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "coverage": "nyc mocha"
   },
   "keywords": [
     "db",
@@ -31,6 +32,13 @@
     "url": "https://github.com/selfup/rejs"
   },
   "homepage": "https://github.com/selfup/rejs",
+  "nyc": {
+    "check-coverage": true,
+    "branches": 100,
+    "lines": 100,
+    "functions": 100,
+    "statements": 100
+  },
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^12.0.2",

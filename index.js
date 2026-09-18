@@ -5,6 +5,7 @@ const _modifyTable = Symbol('modifyTable');
 const _replaceTable = Symbol('replaceTable');
 const _initialData = Symbol('initialData');
 const _multiCall = Symbol('multiCall');
+const _tablePath = Symbol('tablePath');
 
 class Rejs {
   constructor() {
@@ -18,7 +19,7 @@ class Rejs {
   }
 
   createTable(tableName) {
-    if (fs.existsSync(`./selfup-rejs/${tableName}`)) {
+    if (fs.existsSync(this[_tablePath](tableName))) {
       return null;
     }
 
@@ -44,9 +45,7 @@ class Rejs {
   }
 
   dropTable(tableName) {
-    const table = `./selfup-rejs/${tableName}`;
-
-    fs.unlinkSync(table);
+    fs.unlinkSync(this[_tablePath](tableName));
   }
 
   dropTables() {
@@ -64,7 +63,7 @@ class Rejs {
   }
 
   getTable(tableName) {
-    const file = fs.readFileSync(`./selfup-rejs/${tableName}`, 'utf-8');
+    const file = fs.readFileSync(this[_tablePath](tableName), 'utf-8');
 
     return JSON.parse(file);
   }
@@ -87,13 +86,26 @@ class Rejs {
   }
 
   [_multiCall](args, fn) {
-    return args.map((table) => fn(table));
+    return args.map((table) => fn.call(this, table));
   }
 
   [_replaceTable](tableName, data) {
-    const fileName = `./selfup-rejs/${tableName}`;
+    fs.writeFileSync(this[_tablePath](tableName), JSON.stringify(data));
+  }
 
-    fs.writeFileSync(fileName, JSON.stringify(data));
+  [_tablePath](tableName) {
+    if (typeof tableName !== 'string' || tableName.length === 0) {
+      throw new TypeError('Table name must be a non-empty string');
+    }
+
+    const escapesTable = tableName === '.' || tableName === '..';
+    const hasSeparator = /[\\/\0]/.test(tableName);
+
+    if (escapesTable || hasSeparator) {
+      throw new Error(`Invalid table name: ${tableName}`);
+    }
+
+    return `./selfup-rejs/${tableName}`;
   }
 
   [_resetTable](tableName) {

@@ -1,7 +1,21 @@
+const fs = require('fs');
+const os = require('os');
+const path = require('path');
 const assert = require('chai').assert;
 const Rejs = require('../index.js');
 
 describe('Rejs', function () {
+  before(function () {
+    this.cwd = process.cwd();
+    this.tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'rejs-'));
+    process.chdir(this.tmpDir);
+  });
+
+  after(function () {
+    process.chdir(this.cwd);
+    fs.rmSync(this.tmpDir, { recursive: true, force: true });
+  });
+
   beforeEach(function () {
     this.rejs = new Rejs();
     this.rejs.createTable('testOne');
@@ -9,6 +23,54 @@ describe('Rejs', function () {
 
   afterEach(function () {
     this.rejs.dropTable('testOne');
+  });
+
+  describe('table name validation', function () {
+    it('rejects a name containing a forward slash', function () {
+      assert.throws(() => this.rejs.createTable('../escape'));
+    });
+
+    it('rejects a name containing a backslash', function () {
+      assert.throws(() => this.rejs.createTable('..\\escape'));
+    });
+
+    it('rejects a parent directory name', function () {
+      assert.throws(() => this.rejs.createTable('..'));
+    });
+
+    it('rejects the current directory name', function () {
+      assert.throws(() => this.rejs.createTable('.'));
+    });
+
+    it('rejects an empty name', function () {
+      assert.throws(() => this.rejs.createTable(''));
+    });
+
+    it('rejects a non-string name', function () {
+      assert.throws(() => this.rejs.createTable(42));
+    });
+
+    it('rejects a traversal name on read', function () {
+      assert.throws(() => this.rejs.getTable('../../etc/passwd'));
+    });
+
+    it('rejects a traversal name on write', function () {
+      assert.throws(() => this.rejs.newData('../escape', { test: 'data' }));
+    });
+  });
+
+  describe('createTable', function () {
+    it('does not overwrite an existing table', function () {
+      this.rejs.newData('testOne', { test: 'kept data' });
+      this.rejs.createTable('testOne');
+
+      const expected = {
+        '0': { table: 'testOne', nextId: 2 },
+        '1': { test: 'kept data' },
+      };
+
+      assert.deepEqual(expected, this.rejs.getTable('testOne'));
+    });
   });
 
   describe('getTable and newData', function () {
@@ -61,6 +123,21 @@ describe('Rejs', function () {
       this.rejs.newData('testOne', { test: 'test data 2' });
       this.rejs.deleteById('testOne', '2');
       assert.equal(null, this.rejs.findId('testOne', '2'));
+    });
+
+    it('does not reuse the id of a deleted record', function () {
+      this.rejs.newData('testOne', { test: 'test data 1' });
+      this.rejs.newData('testOne', { test: 'test data 2' });
+      this.rejs.deleteById('testOne', '2');
+      this.rejs.newData('testOne', { test: 'test data 3' });
+
+      const expected = {
+        '0': { table: 'testOne', nextId: 4 },
+        '1': { test: 'test data 1' },
+        '3': { test: 'test data 3' },
+      };
+
+      assert.deepEqual(expected, this.rejs.getTable('testOne'));
     });
   });
 

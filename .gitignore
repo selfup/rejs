@@ -1,4 +1,5 @@
 node_modules
 selfup-rejs
-selfup-rejs/*
-/coverage
+coverage
+.nyc_output
+.ori

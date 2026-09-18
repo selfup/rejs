@@ -41,7 +41,7 @@ rejs.updateTables(
 * (GET)    Table Object Query: `rejs.getTable('tablename')`
 * (GET)    Multi-Table Query: `rejs.getTables('table', 'table2', 'table3')`
 * (GET)    Find by ID: `rejs.findId('tablename', 'id')`
-* (GET)    Where/Select: `rejs.where('tablename', 'any value in a flat object')`
+* (GET)    Where/Select: `rejs.where('tablename', 'any key or value in a flat object')`
 
 # Examples below:
 
